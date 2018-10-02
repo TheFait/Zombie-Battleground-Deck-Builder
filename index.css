@@ -1,0 +1,23 @@
+#deck {
+	background-color: #ccffa3;
+	height: 100px;
+	overflow: auto;
+    white-space: nowrap;
+}
+
+#cardList {
+	padding-top: 10px;
+	background-color: #cc33a3;
+	height: 100px;
+	overflow: auto;
+    white-space: nowrap;
+}
+
+#filter {
+	text-align:center;
+}
+
+#myChart{
+	margin-left: auto;
+	margin-right: auto;
+}
