@@ -21,3 +21,8 @@
 	margin-left: auto;
 	margin-right: auto;
 }
+
+#error{
+	min-height: 22px;
+	color: #ff0000;
+}
