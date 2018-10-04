@@ -208,6 +208,7 @@ let chartData = {
 function loadFaction(faction)
 {
 	let sortedArray = [];
+	$("#cardList").empty();
 	
 	$.each( cardList, function(key,value){
 		if (value.faction == faction)
@@ -231,27 +232,6 @@ function loadFaction(faction)
 			$("#cardList").append(buttonTest);
 		}
 	});
-	
-	/*
-	$("#cardList").empty();
-	$.each( cardList, function(key,value){
-		if (value.faction == faction)
-		{
-			let name = key;
-			let cost = "Cost: " + value.cost;
-			let att = "Attack: " + value.attack;
-			let def = "Defense: " + value.defense;
-			let buttonTest = $('<button/>',{
-				text: name,
-				click: function(){
-					addToDeck(key, value);
-				}
-			});
-			buttonTest.css({"width":"100px", "height":"50px"});
-			$("#cardList").append(buttonTest);
-		}
-	});
-	*/
 }
 
 
@@ -371,21 +351,8 @@ function populateCategories()
 function populateDeck()
 {
 	$("#deck").empty();
-	/*
-	$.each( currentDeck, function(key,value){
-		let buttonTest = $('<button/>',{
-			text: key + ": " + value,
-			click: function(){
-				removeFromDeck(key);
-			}
-		});
-		buttonTest.css({"width":"100px", "height":"50px"});
-		$("#deck").append(buttonTest);
-	});
-	*/
 	
-	let sortedArray = [];
-	
+	let sortedArray = [];	
 	$.each( currentDeck, function(key,value){
 		sortedArray.push(key);
 	});
@@ -402,11 +369,6 @@ function populateDeck()
 		buttonTest.css({"width":"100px", "height":"50px"});
 		$("#deck").append(buttonTest);
 	});
-	
-	
-	
-	
-	
 	
 	updateCardAmount();
 	updateGraph();
