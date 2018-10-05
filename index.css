@@ -46,8 +46,10 @@ body{
     white-space: nowrap;
 }
 
-#filter {
-	text-align:center;
+#filter img{
+	cursor: pointer;
+	width: 73px;
+	height: 73px;
 }
 
 #myChart{
@@ -78,4 +80,8 @@ body{
 .card h3{
 	margin:0;
 	left:75px;
+}
+
+#deckURL{
+	width: 600px;
 }
