@@ -1,5 +1,34 @@
+body{
+	background-color: #000025;
+	color:white;
+}
+
+#title{
+	text-align: center;
+}
+
+#title h1{
+	position:absolute;
+	margin-left: auto;
+	margin-right: auto;
+	left: 0;
+	right: 0;
+	margin-top:5px;
+}
+
+#title img{
+	display:block;
+	margin-top: -8px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#deckInfo{
+	display:inline;
+}
+
 #deck {
-	background-color: #ccffa3;
+	background-color: rgba(100,100,100,.2);
 	height: 230px;
 	overflow: auto;
     white-space: nowrap;
@@ -7,7 +36,7 @@
 
 #cardList {
 	padding-top: 10px;
-	background-color: #cc33a3;
+	background-color: rgba(100,100,100,.2);
 	height: 230px;
 	overflow: auto;
     white-space: nowrap;

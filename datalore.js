@@ -16,7 +16,7 @@ const cardList = {
 	"Stapler": {faction: "Item",rank:"Item",cost:4,type:"Item",attack:0,defense:0,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/015.83178c67.png"},
 	"Nail  Bomb": {faction: "Item",rank:"Item",cost:4,type:"Item",attack:0,defense:0,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/016.acc1ab1b.png"},
 	"Goo Bottles": {faction: "Item",rank:"Item",cost:4,type:"Item",attack:0,defense:0,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/017.79cc9efa.png"},
-	"Chainsaw": {faction: "Item",rank:"Item",cost:2,type:"Item",attack:0,defense:0,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/018.00832a30.png"},
+	"Chainsaw": {faction: "Item",rank:"Item",cost:4,type:"Item",attack:0,defense:0,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/018.00832a30.png"},
 	"Azuraz ": {faction: "Life",rank:"Minion",cost:1,type:"Walker",attack:1,defense:1,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/019.98198c0c.png"},
 	"Shroom": {faction: "Life",rank:"Officer",cost:4,type:"Walker",attack:4,defense:2,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/020.cd524c2b.png"},
 	"Vindrom": {faction: "Life",rank:"Officer",cost:4,type:"Walker",attack:2,defense:3,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/021.e46634a9.png"},
@@ -343,7 +343,7 @@ function populateDeck()
 
 function updateCardAmount()
 {
-	$("#deckInfo").text("Cards: " + checkTotalCards() + "/" + MAX_CARDS);
+	$("#deckInfo").text("Deck Size: " + checkTotalCards() + "/" + MAX_CARDS);
 }
 
 function updateGraph()
@@ -375,6 +375,14 @@ $(document).ready(function(){
 						min: 0,
 						suggestedMax: 10,
 						stepSize: 1
+					},
+					gridLines: {
+						color: "rgba(100, 100, 100, 1)"
+					}
+				}],
+				xAxes: [{
+					gridLines: {
+						color: "rgba(100, 100, 100, 1)"
 					}
 				}]
 			}
