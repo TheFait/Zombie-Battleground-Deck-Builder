@@ -1,6 +1,6 @@
 #deck {
 	background-color: #ccffa3;
-	height: 100px;
+	height: 230px;
 	overflow: auto;
     white-space: nowrap;
 }
@@ -8,7 +8,7 @@
 #cardList {
 	padding-top: 10px;
 	background-color: #cc33a3;
-	height: 100px;
+	height: 230px;
 	overflow: auto;
     white-space: nowrap;
 }
@@ -25,4 +25,24 @@
 #error{
 	min-height: 22px;
 	color: #ff0000;
+}
+
+.card{
+	position:relative;
+	cursor: pointer;
+	width: 150px;
+	height: 192px;
+	display:inline-block;
+	text-align: center;
+}
+
+.cardImage{
+	max-height:100%;
+	max-width:100%;
+	width:auto;
+}
+
+.card h3{
+	margin:0;
+	left:75px;
 }
