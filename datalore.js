@@ -155,6 +155,7 @@ function loadFaction(faction)
 {
 	let sortedArray = [];
 	$("#cardList").empty();
+	$("#cardList").scrollLeft();
 	
 	$.each( cardList, function(key,value){
 		if (value.faction == faction)
@@ -259,7 +260,7 @@ function addToDeck(key, value)
 	}
 	else
 	{
-		alert("You can only have 30 cards in your deck!");
+		$("#error").text("You can only have 30 cards in your deck!");
 	}
 }
 
@@ -295,24 +296,16 @@ function emptyDeck()
 
 function populateCategories()
 {
-	let sortedArray = [];
-	$.each( cardList, function(key,value){
-	});
+	categoryList = ["Fire","Water","Air","Earth","Life","Toxic","Item"];
 	
-	$.each( cardList, function(key,value){
-		let toTest = value.faction;
-		if(!categoryList.includes(toTest))
-		{
-			categoryList.push(toTest);
-			
-			let buttonTest = $('<img/>',{
+	$.each ( categoryList, function(index,value){
+		let buttonTest = $('<img/>',{
 				//text: toTest,
-				src: "images/" + toTest.toLowerCase() + ".png",
-				click: function(){loadFaction(toTest);}
+				src: "images/" + value.toLowerCase() + ".png",
+				click: function(){loadFaction(value);}
 			});
 
 			$("#filter").append(buttonTest);
-		}
 	});
 }
 
@@ -367,7 +360,7 @@ function getParams(url) {
 	var vars = query.split('&');
 	for (var i = 0; i < vars.length; i++) {
 		var pair = vars[i].split('=');
-		params[pair[0]] = decodeURIComponent(pair[1]);
+		params[decodeURIComponent(pair[0])] = decodeURIComponent(pair[1]);
 	}
 	return params;
 };
@@ -385,6 +378,8 @@ function updateDeckURL()
 	});
 	url = url.slice(0, -1);
 	
+	url = encodeURI(url);
+	
 	$("#deckURL").val(url);
 }
 
@@ -393,7 +388,6 @@ function updateGraph()
 	let graphData = [0,0,0,0,0,0,0,0,0,0,0,0];
 	$.each( currentDeck, function(key,value){
 		graphData[(cardList[key].cost-1)] += value;
-		//console.log(cardList[key].cost);
 	});
 	
 	chartData.datasets[0].data = graphData;
@@ -451,9 +445,8 @@ $(document).ready(function(){
 		});
 		currentDeck = loadedDeck;
 		populateDeck();
+		
 	}
-	
-	//$("#deckURL").val(window.location.href.split('?')[0]);
 	
 });
 
