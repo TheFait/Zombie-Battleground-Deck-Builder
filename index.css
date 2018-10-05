@@ -7,6 +7,10 @@ body{
 	text-align: center;
 }
 
+#title a{
+	color:white;
+}
+
 #title h1{
 	position:absolute;
 	margin-left: auto;
