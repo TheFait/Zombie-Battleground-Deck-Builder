@@ -19,14 +19,28 @@
 	<img src="https://d1yfcrdiemhp2q.cloudfront.net/img/menu-bg.435ed80a.png" />
 	</a>
   </div>
-  <div><h2 id="deckInfo"></h2>   <span id="error"></span></div>
-  <div id="deck"></div>
   <button name="Copy" onclick="copyText()">Copy to Clipboard</button><input type="text" id="deckURL">
+  <div id="deckContainer">
+	  <div><h2 id="cardCount"></h2>   <span id="error"></span></div>
+	  <div id="deck"></div>
+	</div>
   <br>
   <br>
-  <div id="cardList"></div>
+  <div id="cardListContainer">
+		<div id="cardList"></div>
+		<div id="filter"></div>
+	</div>
   <br>
-  <div id="filter"></div>
-  <canvas id="myChart" width="600" height="400"></canvas>
+  <div id="deckInfo">
+	<div id="deckSummary">
+		<h1>Deck Summary</h1>
+		<div class="rankCount" id="minionCount">Minions: 50</div>
+		<div class="rankCount" id="officerCount">Officers: 50</div>
+		<div class="rankCount" id="commanderCount">Commanders: 50</div>
+		<div class="rankCount" id="generalCount">Generals: 50</div>
+		<div class="rankCount" id="itemCount">Items: 50</div>
+	</div>
+	<canvas id="myChart" width="600" height="400"></canvas>
+  </div>
   </body>
 </html>

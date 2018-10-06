@@ -367,7 +367,44 @@ function getParams(url) {
 
 function updateCardAmount()
 {
-	$("#deckInfo").text("Deck Size: " + checkTotalCards() + "/" + MAX_CARDS);
+	$("#cardCount").text("Deck Size: " + checkTotalCards() + "/" + MAX_CARDS);
+	
+	let minionCount = 0;
+	let officerCount = 0;
+	let commanderCount = 0;
+	let generalCount = 0;
+	let itemCount = 0;
+	
+	$.each( currentDeck, function(key,value){
+		switch (cardList[key].rank)
+		{
+			case "Item":
+				itemCount+= value;
+				break;
+			case "Minion":
+				minionCount+= value;
+				break;
+			case "General":
+				generalCount+= value;
+				break;
+			case "Commander":
+				commanderCount+= value;
+				break;
+			case "Officer":
+				officerCount+= value;
+				break;
+			default:
+				console.log("Error: ");
+		}
+	});
+	
+	$("#minionCount").text("Minions: " + minionCount);
+	$("#officerCount").text("Officers: " + officerCount);
+	$("#commanderCount").text("Commanders: " + commanderCount);
+	$("#generalCount").text("Generals: " + generalCount);
+	$("#itemCount").text("Items: " + itemCount);
+	
+	
 }
 
 function updateDeckURL()
