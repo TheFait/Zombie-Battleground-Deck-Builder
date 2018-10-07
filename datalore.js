@@ -112,6 +112,19 @@ const MAX_ITEMS = 2;
 const MAX_COMMANDERS = 2;
 const MAX_GENERALS = 1;
 
+let currentFilter = {
+	faction: "",
+	rank: "",
+	name: "",
+	minCost: -1,
+	maxCost: -1,
+	type: "",
+	minAttack: -1,
+	maxAttack: -1,
+	minDefense: -1,
+	maxDefense: -1
+};
+
 
 let chartData = {
 	labels: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"],
@@ -150,15 +163,108 @@ let chartData = {
 	}]
 };
 
-
-function loadFaction(faction)
+function resetFilter()
 {
+	currentFilter = {
+	faction: "",
+	rank: "",
+	name: "",
+	minCost: -1,
+	maxCost: -1,
+	type: "",
+	minAttack: -1,
+	maxAttack: -1,
+	minDefense: -1,
+	maxDefense: -1
+	};
+}
+
+
+function testFilter(key)
+{
+	let testCard = cardList[key];
+	
+	let faction = currentFilter["faction"].toLowerCase();
+	let rank = currentFilter["rank"].toLowerCase();
+	let name = currentFilter["name"].toLowerCase();
+	let minCost = currentFilter["minCost"];
+	let maxCost = currentFilter["maxCost"];
+	let type = currentFilter["type"].toLowerCase();
+	let minAttack = currentFilter["minAttack"];
+	let maxAttack = currentFilter["maxAttack"];
+	let minDefense = currentFilter["minDefense"];
+	let maxDefense = currentFilter["maxDefense"];
+	
+	
+	if (faction != "")
+	{
+		if(testCard.faction.toLowerCase() != faction)
+			return false;
+	}
+	if (rank != "")
+	{
+		if(testCard.rank.toLowerCase() != rank)
+			return false;
+	}
+	if (name != "")
+	{
+		if(testCard.name.toLowerCase() != name)
+			return false;
+	}
+	if (type != "")
+	{
+		if(testCard.type.toLowerCase() != type)
+			return false;
+	}
+	
+	if (minCost != -1)
+	{
+		if(testCard.cost < minCost)
+			return false;
+		else if (maxCost != -1)
+		{
+			if(testCard.cost > maxCost)
+				return false;
+		}
+	}	
+	
+	if (minAttack != -1)
+	{
+		if(testCard.attack < minAttack)
+			return false;
+		else if (maxAttack != -1)
+		{
+			if(testCard.attack > maxAttack)
+				return false;
+		}
+	}	
+	
+	
+	if (minDefense != -1)
+	{
+		if(testCard.defense < minDefense)
+			return false;
+		else if (maxDefense != -1)
+		{
+			if(testCard.defense > maxDefense)
+				return false;
+		}
+	}	
+	
+	
+	return true;
+}
+
+function loadCards()
+{	
 	let sortedArray = [];
 	$("#cardList").empty();
 	$("#cardList").scrollLeft();
 	
+	
+	
 	$.each( cardList, function(key,value){
-		if (value.faction == faction)
+		if (testFilter(key))
 		{
 			sortedArray.push(key);
 		}
@@ -176,30 +282,18 @@ function loadFaction(faction)
 	
 	
 	sortedArray.forEach(function(key,index){
-		if (cardList[key].faction == faction)
-		{
-			/*
-			let buttonTest = $('<button/>',{
-				text: key + ": " + cardList[key].cost,
-				click: function(){
-					addToDeck(key, cardList[key]);
-				}
-			});
-			buttonTest.css({"width":"100px", "height":"50px"});
-			*/
-			
-			let cardWrapper = $('<span class="card"/>');
-			let cardImage = $('<img class="cardImage"/>');
-			cardImage.attr('src', cardList[key].image);
-			cardImage.click(function(){
-					addToDeck(key, cardList[key]);
-			});
-			
-			cardWrapper.append(cardImage);
-			
-			
-			$("#cardList").append(cardWrapper);
-		}
+		
+		let cardWrapper = $('<span class="card"/>');
+		let cardImage = $('<img class="cardImage"/>');
+		cardImage.attr('src', cardList[key].image);
+		cardImage.click(function(){
+				addToDeck(key, cardList[key]);
+		});
+		
+		cardWrapper.append(cardImage);
+		
+		
+		$("#cardList").append(cardWrapper);
 	});
 }
 
@@ -302,7 +396,10 @@ function populateCategories()
 		let buttonTest = $('<img/>',{
 				//text: toTest,
 				src: "images/" + value.toLowerCase() + ".png",
-				click: function(){loadFaction(value);}
+				click: function(){
+					currentFilter["faction"] = value.toLowerCase();
+					loadCards();
+					}
 			});
 
 			$("#filter").append(buttonTest);
@@ -438,8 +535,83 @@ function copyText()
 	document.execCommand("copy");	
 }
 
+function updateSearch()
+{
+	let params = $("#searchParams").val();
+	resetFilter();
+	
+	var vars = params.split(',');
+	for (var i = 0; i < vars.length; i++) {
+		var pair = vars[i].split(':');
+		
+		if(pair.length > 1)
+		{
+			let value1 = pair[0].toLowerCase().trim();
+			let value2 = pair[1].toLowerCase().trim();
+			
+			switch(value1)
+			{
+				case "attack":
+					if(value2.includes('-'))
+					{
+						let splitValues = value2.split('-');
+						currentFilter["minAttack"] = Number(splitValues[0]);
+						currentFilter["maxAttack"] = Number(splitValues[1]);
+					}
+					else
+					{
+						currentFilter["minAttack"] = Number(value2);
+						currentFilter["maxAttack"] = Number(value2);
+					}
+					break;
+				case "defense":
+					if(value2.includes('-'))
+					{
+						let splitValues = value2.split('-');
+						currentFilter["minDefense"] = Number(splitValues[0]);
+						currentFilter["maxDefense"] = Number(splitValues[1]);
+					}
+					else
+					{
+						currentFilter["minDefense"] = Number(value2);
+						currentFilter["maxDefense"] = Number(value2);
+					}
+					break;
+				case "cost":
+					if(value2.includes('-'))
+					{
+						let splitValues = value2.split('-');
+						currentFilter["minCost"] = Number(splitValues[0]);
+						currentFilter["maxCost"] = Number(splitValues[1]);
+					}
+					else
+					{
+						currentFilter["minCost"] = Number(value2);
+						currentFilter["maxCost"] = Number(value2);
+					}
+					break;
+				case "faction":
+					currentFilter["faction"] = value2;
+					break;
+				case "rank":
+					currentFilter["rank"] = value2;
+					break;
+				case "name":
+					currentFilter["name"] = value2;
+					break;
+				case "type":
+					currentFilter["type"] = value2;
+					break;
+			}
+		}
+	}
+	
+	loadCards();
+	
+}
+
 $(document).ready(function(){
-    loadFaction("Air");
+    loadCards();
 	populateCategories();
 	
 	var ctx = $('#myChart')[0].getContext('2d');
@@ -484,6 +656,10 @@ $(document).ready(function(){
 		populateDeck();
 		
 	}
+	
+	$("#searchParams").change(function(){
+		updateSearch();
+	});
 	
 });
 
