@@ -13,10 +13,10 @@ const cardList = {
 	"Cynderman": {faction: "Fire",rank:"Officer",name:"Cynderman",cost:4,type:"Walker",attack:2,defense:3,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/012.d81cf60e.png"},
 	"Gargantua": {faction: "Fire",rank:"General",name:"Gargantua",cost:11,type:"Heavy",attack:6,defense:8,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/013.3db7d0e3.png"},
 	"Fire-Maw": {faction: "Fire",rank:"Commander",name:"Fire-Maw",cost:5,type:"Feral",attack:3,defense:3,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/014.457223ea.png"},
-	"Stapler": {faction: "Item",rank:"Item",name:"Stapler",cost:4,type:"Item",attack:0,defense:0,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/015.83178c67.png"},
-	"Nail  Bomb": {faction: "Item",rank:"Item",name:"Nail  Bomb",cost:4,type:"Item",attack:0,defense:0,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/016.acc1ab1b.png"},
-	"Goo Bottles": {faction: "Item",rank:"Item",name:"Goo Bottles",cost:4,type:"Item",attack:0,defense:0,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/017.79cc9efa.png"},
-	"Chainsaw": {faction: "Item",rank:"Item",name:"Chainsaw",cost:4,type:"Item",attack:0,defense:0,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/018.00832a30.png"},
+	"Stapler": {faction: "Item",rank:"Item",name:"Stapler",cost:4,type:"Item",attack:-1,defense:-1,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/015.83178c67.png"},
+	"Nail  Bomb": {faction: "Item",rank:"Item",name:"Nail  Bomb",cost:4,type:"Item",attack:-1,defense:-1,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/016.acc1ab1b.png"},
+	"Goo Bottles": {faction: "Item",rank:"Item",name:"Goo Bottles",cost:4,type:"Item",attack:-1,defense:-1,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/017.79cc9efa.png"},
+	"Chainsaw": {faction: "Item",rank:"Item",name:"Chainsaw",cost:4,type:"Item",attack:-1,defense:-1,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/018.00832a30.png"},
 	"Azuraz ": {faction: "Life",rank:"Minion",name:"Azuraz ",cost:1,type:"Walker",attack:1,defense:1,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/019.98198c0c.png"},
 	"Shroom": {faction: "Life",rank:"Officer",name:"Shroom",cost:4,type:"Walker",attack:4,defense:2,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/020.cd524c2b.png"},
 	"Vindrom": {faction: "Life",rank:"Officer",name:"Vindrom",cost:4,type:"Walker",attack:2,defense:3,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/021.e46634a9.png"},
@@ -50,7 +50,7 @@ const cardList = {
 	"IgneouZ": {faction: "Earth",rank:"Commander",name:"IgneouZ",cost:4,type:"Heavy",attack:3,defense:3,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/061.4011ef1b.png"},
 	"Enrager": {faction: "Fire",rank:"Commander",name:"Enrager",cost:6,type:"Feral",attack:5,defense:4,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/066.bea11a94.png"},
 	"Zhampion": {faction: "Fire",rank:"Commander",name:"Zhampion",cost:5,type:"Feral",attack:5,defense:2,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/067.4cdb41ac.png"},
-	"Goo Beaker": {faction: "Item",rank:"Item",name:"Goo Beaker",cost:2,type:"Item",attack:0,defense:0,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/070.b19b5d0e.png"},
+	"Goo Beaker": {faction: "Item",rank:"Item",name:"Goo Beaker",cost:2,type:"Item",attack:-1,defense:-1,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/070.b19b5d0e.png"},
 	"Bloomer": {faction: "Life",rank:"Minion",name:"Bloomer",cost:2,type:"Walker",attack:1,defense:1,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/075.55501caf.png"},
 	"Rainz": {faction: "Life",rank:"Commander",name:"Rainz",cost:6,type:"Walker",attack:3,defense:4,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/078.70f77df4.png"},
 	"RelentleZZ": {faction: "Toxic",rank:"Officer",name:"RelentleZZ",cost:3,type:"Walker",attack:3,defense:6,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/083.044155cd.png"},
@@ -72,7 +72,7 @@ const cardList = {
 	"BurZt": {faction: "Fire",rank:"Minion",name:"BurZt",cost:3,type:"Feral",attack:4,defense:1,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/108.43a0878f.png"},
 	"Alpha": {faction: "Fire",rank:"Officer",name:"Alpha",cost:5,type:"Walker",attack:3,defense:4,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/110.9be21af1.png"},
 	"Volcan": {faction: "Fire",rank:"Commander",name:"Volcan",cost:6,type:"Walker",attack:5,defense:5,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/111.42775b95.png"},
-	"Fresh Meat": {faction: "Item",rank:"Item",name:"Fresh Meat",cost:5,type:"Item",attack:0,defense:0,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/117.f5e4614b.png"},
+	"Fresh Meat": {faction: "Item",rank:"Item",name:"Fresh Meat",cost:5,type:"Item",attack:-1,defense:-1,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/117.f5e4614b.png"},
 	"Zplitter": {faction: "Life",rank:"Commander",name:"Zplitter",cost:7,type:"Walker",attack:3,defense:4,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/121.36625512.png"},
 	"Zeeder": {faction: "Life",rank:"Commander",name:"Zeeder",cost:5,type:"Walker",attack:2,defense:5,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/124.2f56ec5c.png"},
 	"Blight": {faction: "Life",rank:"Commander",name:"Blight",cost:6,type:"Walker",attack:0,defense:6,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/125.cb95dc4c.png"},
@@ -99,8 +99,8 @@ const cardList = {
 	"Hazzard": {faction: "Toxic",rank:"Officer",name:"Hazzard",cost:5,type:"Walker",attack:4,defense:4,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/151.ffcfdd5f.png"},
 	"Osmoziz": {faction: "Water",rank:"Minion",name:"Osmoziz",cost:2,type:"Walker",attack:1,defense:2,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/152.257b561a.png"},
 	"Geyzer": {faction: "Water",rank:"Officer",name:"Geyzer",cost:4,type:"Walker",attack:2,defense:3,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/153.db6b8359.png"},
-	"Tainted Goo": {faction: "Item",rank:"Item",name:"Tainted Goo",cost:2,type:"Item",attack:0,defense:0,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/155.a497772d.png"},
-	"Corrupted Goo": {faction: "Item",rank:"Item",name:"Corrupted Goo",cost:4,type:"Item",attack:0,defense:0,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/156.3409d305.png"}
+	"Tainted Goo": {faction: "Item",rank:"Item",name:"Tainted Goo",cost:2,type:"Item",attack:-1,defense:-1,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/155.a497772d.png"},
+	"Corrupted Goo": {faction: "Item",rank:"Item",name:"Corrupted Goo",cost:4,type:"Item",attack:-1,defense:-1,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/156.3409d305.png"}
 };
 
 let categoryList = [];
@@ -226,7 +226,12 @@ function testFilter(key)
 			if(testCard.cost > maxCost)
 				return false;
 		}
-	}	
+	}
+	if (maxCost != -1)
+	{
+		if(testCard.cost > maxCost)
+			return false;
+	}
 	
 	if (minAttack != -1)
 	{
@@ -237,7 +242,12 @@ function testFilter(key)
 			if(testCard.attack > maxAttack)
 				return false;
 		}
-	}	
+	}
+	if (maxAttack != -1)
+		{
+			if(testCard.attack > maxAttack)
+				return false;
+		}	
 	
 	
 	if (minDefense != -1)
@@ -249,10 +259,28 @@ function testFilter(key)
 			if(testCard.defense > maxDefense)
 				return false;
 		}
-	}	
+	}
+	if (maxDefense != -1)
+	{
+		if(testCard.defense > maxDefense)
+			return false;
+	}
 	
 	
 	return true;
+}
+
+function evaluateFilter()
+{
+	let result = false;
+	$.each( cardList, function(key,value){
+		if (testFilter(key))
+		{
+			result = true;
+			return;
+		}
+	});
+	return result;
 }
 
 function loadCards()
@@ -390,14 +418,17 @@ function emptyDeck()
 
 function populateCategories()
 {
-	categoryList = ["Fire","Water","Air","Earth","Life","Toxic","Item"];
+	categoryList = ["Fire","Water","Air","Earth","Life","Toxic","Item","Empty"];
 	
 	$.each ( categoryList, function(index,value){
 		let buttonTest = $('<img/>',{
 				//text: toTest,
 				src: "images/" + value.toLowerCase() + ".png",
 				click: function(){
-					currentFilter["faction"] = value.toLowerCase();
+					if(value == "Empty")
+						currentFilter["faction"] = '';
+					else
+						currentFilter["faction"] = value.toLowerCase();
 					loadCards();
 					}
 			});
@@ -538,6 +569,8 @@ function copyText()
 function updateSearch()
 {
 	let params = $("#searchParams").val();
+	
+	let previousFilter = currentFilter;
 	resetFilter();
 	
 	var vars = params.split(',');
@@ -555,8 +588,20 @@ function updateSearch()
 					if(value2.includes('-'))
 					{
 						let splitValues = value2.split('-');
+						if (splitValues[1] == '')
+						{
+							currentFilter["maxAttack"] = Number(splitValues[0]);
+						}
+						else
+						{	
+							currentFilter["minAttack"] = Number(splitValues[0]);
+							currentFilter["maxAttack"] = Number(splitValues[1]);
+						}
+					}
+					else if (value2.includes('+'))
+					{
+						let splitValues = value2.split('+');
 						currentFilter["minAttack"] = Number(splitValues[0]);
-						currentFilter["maxAttack"] = Number(splitValues[1]);
 					}
 					else
 					{
@@ -568,8 +613,20 @@ function updateSearch()
 					if(value2.includes('-'))
 					{
 						let splitValues = value2.split('-');
+						if (splitValues[1] == '')
+						{
+							currentFilter["maxDefense"] = Number(splitValues[0]);
+						}
+						else
+						{
+							currentFilter["minDefense"] = Number(splitValues[0]);
+							currentFilter["maxDefense"] = Number(splitValues[1]);
+						}
+					}
+					else if (value2.includes('+'))
+					{
+						let splitValues = value2.split('+');
 						currentFilter["minDefense"] = Number(splitValues[0]);
-						currentFilter["maxDefense"] = Number(splitValues[1]);
 					}
 					else
 					{
@@ -577,12 +634,24 @@ function updateSearch()
 						currentFilter["maxDefense"] = Number(value2);
 					}
 					break;
-				case "cost":
+				case "goo":
 					if(value2.includes('-'))
 					{
 						let splitValues = value2.split('-');
+						if (splitValues[1] == '')
+						{
+							currentFilter["maxCost"] = Number(splitValues[0]);
+						}
+						else
+						{
+							currentFilter["minCost"] = Number(splitValues[0]);
+							currentFilter["maxCost"] = Number(splitValues[1]);
+						}
+					}
+					else if (value2.includes('+'))
+					{
+						let splitValues = value2.split('+');
 						currentFilter["minCost"] = Number(splitValues[0]);
-						currentFilter["maxCost"] = Number(splitValues[1]);
 					}
 					else
 					{
@@ -606,8 +675,19 @@ function updateSearch()
 		}
 	}
 	
+	if(evaluateFilter() == false)
+	{
+		currentFilter = previousFilter;
+	}
 	loadCards();
 	
+}
+
+function clearSearch()
+{
+	$("#searchParams").val('');
+	resetFilter();
+	loadCards();
 }
 
 $(document).ready(function(){
