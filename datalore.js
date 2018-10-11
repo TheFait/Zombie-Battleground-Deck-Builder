@@ -1,124 +1,163 @@
 const cardList = {
-	"Burrrnn": {faction: "Fire",rank:"Officer",name:"Burrrnn",cost:3,type:"Feral",attack:2,defense:2,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/011.0f9eb3b9.png",cardText:"Feral"},
-	"Fire-Maw": {faction: "Fire",rank:"Commander",name:"Fire-Maw",cost:5,type:"Feral",attack:3,defense:3,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/014.457223ea.png",cardText:"Feral, Flash"},
-	"Cerberus": {faction: "Fire",rank:"General",name:"Cerberus",cost:12,type:"Feral",attack:7,defense:8,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/037.c5231893.png",cardText:"Attack: Deal damage before receiving damage"},
-	"Enrager": {faction: "Fire",rank:"Commander",name:"Enrager",cost:6,type:"Feral",attack:5,defense:4,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/066.bea11a94.png",cardText:"Feral, Entry: If your overlord has 10 or less Def or less this gets +2 Atk"},
-	"Zhampion": {faction: "Fire",rank:"Commander",name:"Zhampion",cost:5,type:"Feral",attack:5,defense:2,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/067.4cdb41ac.png",cardText:"Feral, Entry: Summon two 1/1 enemy Pyromaz zombies"},
-	"Azzazzin": {faction: "Toxic",rank:"Officer",name:"Azzazzin",cost:3,type:"Feral",attack:5,defense:1,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/082.d6d1787d.png",cardText:"Blitz"},
-	"Banshee": {faction: "Air",rank:"Minion",name:"Banshee",cost:2,type:"Feral",attack:2,defense:1,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/092.ebe28d3d.png",cardText:"Feral"},
-	"Sparky": {faction: "Fire",rank:"Minion",name:"Sparky",cost:1,type:"Feral",attack:2,defense:1,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/105.5314502a.png",cardText:"Feral, End: 1 damage to this"},
-	"BurZt": {faction: "Fire",rank:"Minion",name:"BurZt",cost:3,type:"Feral",attack:4,defense:1,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/108.43a0878f.png",cardText:"Feral, Entry: Cannot attack the enemy Overlord"},
-	"Quazi": {faction: "Fire",rank:"Minion",name:"Quazi",cost:1,type:"Feral",attack:0,defense:1,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/146.7a39e3bd.png",cardText:"Feral, Overflow 2, End: 2 damage to this and adjacent zombies"},
-	"Modo": {faction: "Fire",rank:"Officer",name:"Modo",cost:3,type:"Feral",attack:2,defense:2,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/147.3c494a50.png",cardText:"Feral, Overflow 5, End: 4 damage to this and adjacent zombies"},
-	"Golem": {faction: "Earth",rank:"Officer",name:"Golem",cost:5,type:"Heavy",attack:2,defense:6,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/006.407ace03.png",cardText:"Heavy"},
-	"Mountain": {faction: "Earth",rank:"General",name:"Mountain",cost:11,type:"Heavy",attack:6,defense:8,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/008.6c507586.png",cardText:"Heavy, Swing 4"},
-	"Gargantua": {faction: "Fire",rank:"General",name:"Gargantua",cost:11,type:"Heavy",attack:6,defense:8,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/013.3db7d0e3.png",cardText:"Entry: 2 damage to all enemies"},
-	"Cherno-bill": {faction: "Toxic",rank:"General",name:"Cherno-bill",cost:11,type:"Heavy",attack:7,defense:9,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/027.4c079764.png",cardText:"Heavy, Death: 3 damage to all zombies"},
-	"Bouncer": {faction: "Air",rank:"Officer",name:"Bouncer",cost:4,type:"Heavy",attack:2,defense:3,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/032.423e2493.png",cardText:"Heavy"},
-	"Tiny": {faction: "Earth",rank:"Officer",name:"Tiny",cost:3,type:"Heavy",attack:0,defense:4,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/035.a23204d1.png",cardText:"Heavy"},
-	"Znowman": {faction: "Water",rank:"Minion",name:"Znowman",cost:3,type:"Heavy",attack:0,defense:3,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/049.09656e4b.png",cardText:"Heavy, enemies that attack this become frozen"},
-	"Spiker": {faction: "Earth",rank:"Officer",name:"Spiker",cost:3,type:"Heavy",attack:2,defense:3,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/059.cf0fac15.png",cardText:"Heavy, Attack: +1 damage to Heavy zombies"},
-	"IgneouZ": {faction: "Earth",rank:"Commander",name:"IgneouZ",cost:4,type:"Heavy",attack:3,defense:3,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/061.4011ef1b.png",cardText:"Heavy, Entry: If your Overlord has 10 Def or less, this gets +2 Def"},
-	"Blocker": {faction: "Earth",rank:"Minion",name:"Blocker",cost:1,type:"Heavy",attack:0,defense:3,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/098.4e18a9d0.png",cardText:"Heavy"},
-	"Hardy": {faction: "Earth",rank:"Minion",name:"Hardy",cost:3,type:"Heavy",attack:3,defense:3,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/100.6a003c73.png",cardText:"Heavy"},
-	"Pyrite": {faction: "Earth",rank:"Commander",name:"Pyrite",cost:5,type:"Heavy",attack:0,defense:8,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/103.61e97a7a.png",cardText:"Heavy, Delayed 2: This loses Heavy but gains +4 Atk"},
-	"Firewall": {faction: "Fire",rank:"Minion",name:"Firewall",cost:2,type:"Heavy",attack:2,defense:1,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/107.9b2c74c6.png",cardText:"Heavy"},
-	"Wazte": {faction: "Toxic",rank:"Minion",name:"Wazte",cost:2,type:"Heavy",attack:3,defense:3,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/128.c0cca82a.png",cardText:"Heavy, Entry: Lose 1 goo bottle"},
-	"Pit": {faction: "Earth",rank:"Minion",name:"Pit",cost:1,type:"Heavy",attack:0,defense:2,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/144.1e565b49.png",cardText:"Heavy, Entry: Add a Tainted Goo to your hand"},
-	"Crater": {faction: "Earth",rank:"Officer",name:"Crater",cost:3,type:"Heavy",attack:1,defense:4,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/145.bbfb1fe0.png",cardText:"Heavy, Entry: Add a Corruputed Goo to your hand"},
-	"Stapler": {faction: "Item",rank:"Item",name:"Stapler",cost:4,type:"Item",attack:-1,defense:-1,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/015.83178c67.png",cardText:"Restore 4 Def to a zombie"},
-	"Nail  Bomb": {faction: "Item",rank:"Item",name:"Nail  Bomb",cost:4,type:"Item",attack:-1,defense:-1,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/016.acc1ab1b.png",cardText:"4 damage to a zombie, Swing 4"},
-	"Goo Bottles": {faction: "Item",rank:"Item",name:"Goo Bottles",cost:4,type:"Item",attack:-1,defense:-1,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/017.79cc9efa.png",cardText:"Get 2 empty goo vials"},
-	"Chainsaw": {faction: "Item",rank:"Item",name:"Chainsaw",cost:2,type:"Item",attack:-1,defense:-1,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/018.00832a30.png",cardText:"Attack: 1 damage to your Overlord"},
-	"Molotov": {faction: "Item",rank:"Item",name:"Molotov",cost:4,type:"Item",attack:-1,defense:-1,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/039.71d9d4b5.png",cardText:"3 damage to a zombie, Swing 3"},
-	"Bat": {faction: "Item",rank:"Item",name:"Bat",cost:3,type:"Item",attack:-1,defense:-1,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/040.5447577c.png",cardText:"2 damage to a zombie and Distract it"},
-	"Whistle": {faction: "Item",rank:"Item",name:"Whistle",cost:0,type:"Item",attack:-1,defense:-1,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/068.d06b9399.png",cardText:"Draw a card"},
-	"Goo Beaker": {faction: "Item",rank:"Item",name:"Goo Beaker",cost:2,type:"Item",attack:-1,defense:-1,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/070.b19b5d0e.png",cardText:"Get 1 empty goo vial"},
-	"Junk Spear": {faction: "Item",rank:"Item",name:"Junk Spear",cost:4,type:"Item",attack:-1,defense:-1,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/071.4d297bcc.png",cardText:"Damage enemy Overlord equal to the number of items played this game"},
-	"Extinguisher": {faction: "Item",rank:"Item",name:"Extinguisher",cost:4,type:"Item",attack:-1,defense:-1,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/113.6b0ef1c7.png",cardText:"Entry: Freeze all enemy zombies"},
-	"Lawnmower": {faction: "Item",rank:"Item",name:"Lawnmower",cost:6,type:"Item",attack:-1,defense:-1,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/114.e6baeb10.png",cardText:"Entry: 2 damage to all enemy zombies"},
-	"Fresh Meat": {faction: "Item",rank:"Item",name:"Fresh Meat",cost:5,type:"Item",attack:-1,defense:-1,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/117.f5e4614b.png",cardText:"Entry: All enemy zombies get -3 Atk until end of turn"},
-	"Boomstick": {faction: "Item",rank:"Item",name:"Boomstick",cost:2,type:"Item",attack:-1,defense:-1,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/154.e2526aa8.png",cardText:"2 damage to 3 random zombies in play"},
-	"Tainted Goo": {faction: "Item",rank:"Item",name:"Tainted Goo",cost:2,type:"Item",attack:-1,defense:-1,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/155.a497772d.png",cardText:"Overflow 3, disables 1 goo vial for next turn"},
-	"Corrupted Goo": {faction: "Item",rank:"Item",name:"Corrupted Goo",cost:4,type:"Item",attack:-1,defense:-1,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/156.3409d305.png",cardText:"Overflow 6, disables 2 goo vials for next turn"},
-	"Whizpar": {faction: "Air",rank:"Minion",name:"Whizpar",cost:1,type:"Walker",attack:1,defense:1,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/001.477fc429.png",cardText:"Attack: +1 damage to Water zombies"},
-	"Pushhh": {faction: "Air",rank:"Officer",name:"Pushhh",cost:3,type:"Walker",attack:3,defense:3,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/002.49b271fc.png",cardText:"Entry: Return a zombie to its owner’s hand"},
-	"Ztormmcaller": {faction: "Air",rank:"Officer",name:"Ztormmcaller",cost:5,type:"Walker",attack:3,defense:3,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/003.14628065.png",cardText:"Entry: 1 damage to a zombie, Swing 1"},
-	"Zeuz": {faction: "Air",rank:"General",name:"Zeuz",cost:11,type:"Walker",attack:5,defense:6,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/004.3a35a747.png",cardText:"Entry: 3 damage to all enemies"},
-	"Rockky": {faction: "Earth",rank:"Minion",name:"Rockky",cost:1,type:"Walker",attack:1,defense:1,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/005.83e3f5ca.png",cardText:"Attack: +1 damage to Air zombies"},
-	"Bolderr": {faction: "Earth",rank:"Minion",name:"Bolderr",cost:3,type:"Walker",attack:1,defense:2,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/007.a7d48ecf.png",cardText:"Entry: 1 damage to a zombie"},
-	"Walley": {faction: "Earth",rank:"Officer",name:"Walley",cost:4,type:"Walker",attack:2,defense:2,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/009.bb978488.png",cardText:"Entry: Adjacent zombies get Heavy"},
-	"Pyromaz": {faction: "Fire",rank:"Minion",name:"Pyromaz",cost:1,type:"Walker",attack:1,defense:1,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/010.d7b2dc68.png",cardText:"Attack: +1 damage to Life zombies"},
-	"Cynderman": {faction: "Fire",rank:"Officer",name:"Cynderman",cost:4,type:"Walker",attack:2,defense:3,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/012.d81cf60e.png",cardText:"Entry: 2 damage to a zombie"},
-	"Azuraz ": {faction: "Life",rank:"Minion",name:"Azuraz ",cost:1,type:"Walker",attack:1,defense:1,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/019.98198c0c.png",cardText:"Attack: +1 damage to Life zombies"},
-	"Shroom": {faction: "Life",rank:"Officer",name:"Shroom",cost:4,type:"Walker",attack:4,defense:2,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/020.cd524c2b.png",cardText:"Entry: 2 damage to a zombie"},
-	"Vindrom": {faction: "Life",rank:"Officer",name:"Vindrom",cost:4,type:"Walker",attack:2,defense:3,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/021.e46634a9.png",cardText:"Attack: Freeze zombie"},
-	"Shammann": {faction: "Life",rank:"General",name:"Shammann",cost:11,type:"Walker",attack:5,defense:6,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/022.aa7deffa.png",cardText:"Turn: Summon two 1/1 zombie minions"},
-	"Puffer": {faction: "Life",rank:"Officer",name:"Puffer",cost:3,type:"Walker",attack:2,defense:2,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/023.28f20695.png",cardText:"Entry: +1 attack to all Life Zombies in play"},
-	"Poizom": {faction: "Toxic",rank:"Minion",name:"Poizom",cost:1,type:"Walker",attack:1,defense:1,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/024.c49130a9.png",cardText:"Attack: +1 damage to Earth zombies"},
-	"Ghoul": {faction: "Toxic",rank:"Officer",name:"Ghoul",cost:2,type:"Walker",attack:3,defense:2,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/025.b2eb2912.png",cardText:"Attack: -1 Attack"},
-	"Izze": {faction: "Water",rank:"Minion",name:"Izze",cost:1,type:"Walker",attack:1,defense:1,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/028.4327b5ae.png",cardText:"Attack: Freeze Target"},
-	"Jetter": {faction: "Water",rank:"Officer",name:"Jetter",cost:4,type:"Walker",attack:3,defense:3,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/029.21387fd8.png",cardText:"Entry: 1 damage to a zombie"},
-	"Freezzee": {faction: "Water",rank:"Officer",name:"Freezzee",cost:5,type:"Walker",attack:3,defense:3,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/030.7e517c90.png",cardText:"Entry: Freeze zombie and adjacent zombies, 2 damage If frozen"},
-	"Tzunamy": {faction: "Water",rank:"General",name:"Tzunamy",cost:11,type:"Walker",attack:6,defense:6,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/031.08d214ed.png",cardText:"Entry: 2 damage to all enemies, then freeze them"},
-	"Mind Flayer": {faction: "Air",rank:"General",name:"Mind Flayer",cost:7,type:"Walker",attack:5,defense:5,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/033.497a37d4.png",cardText:"Entry: Take control of an enemy zombie"},
-	"Wheezy": {faction: "Air",rank:"Minion",name:"Wheezy",cost:2,type:"Walker",attack:1,defense:2,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/034.b2c1129b.png",cardText:"Entry: A random card in your hand gets -1 cost"},
-	"Earthshaker": {faction: "Earth",rank:"Commander",name:"Earthshaker",cost:5,type:"Walker",attack:4,defense:4,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/036.f0b573fb.png",cardText:"Entry: Destroy a Heavy zombie"},
-	"Werezomb": {faction: "Fire",rank:"Officer",name:"Werezomb",cost:3,type:"Walker",attack:1,defense:1,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/038.92dd6843.png",cardText:"Entry: Ally zombie gets Feral"},
-	"Z-Virus": {faction: "Life",rank:"General",name:"Z-Virus",cost:11,type:"Walker",attack:0,defense:0,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/042.26a6159a.png",cardText:"Devour all ally zombies, gain their Atk and Def"},
-	"Yggdrazil": {faction: "Life",rank:"General",name:"Yggdrazil",cost:11,type:"Walker",attack:4,defense:5,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/043.125e56d7.png",cardText:"Entry: Reanimate all Life zombies that died this match"},
-	"Sapper": {faction: "Life",rank:"Officer",name:"Sapper",cost:5,type:"Walker",attack:1,defense:4,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/044.bfbbae0d.png",cardText:"Attack: Restore 1 Def for each damage this deals"},
-	"Keeper": {faction: "Life",rank:"Officer",name:"Keeper",cost:3,type:"Walker",attack:1,defense:3,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/045.37f35f8c.png",cardText:"Entry: Summon a 1/1 Feral zombie minion"},
-	"Zpitter": {faction: "Toxic",rank:"Minion",name:"Zpitter",cost:3,type:"Walker",attack:2,defense:2,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/046.8fbf9ab8.png",cardText:"Entry: 1 damage to a random enemy"},
-	"Zhatterer": {faction: "Water",rank:"Minion",name:"Zhatterer",cost:5,type:"Walker",attack:2,defense:4,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/048.d8f858fa.png",cardText:"Entry: Destroy a frozen zombie"},
-	"Soothsayer": {faction: "Air",rank:"Minion",name:"Soothsayer",cost:2,type:"Walker",attack:1,defense:1,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/050.aae4d06d.png",cardText:"Entry: Draw a card"},
-	"Buffer": {faction: "Air",rank:"Minion",name:"Buffer",cost:2,type:"Walker",attack:1,defense:1,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/051.9e607986.png",cardText:"Death: Give an ally zombie +1 Atk"},
-	"Dragger": {faction: "Air",rank:"Officer",name:"Dragger",cost:3,type:"Walker",attack:1,defense:2,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/053.fda0b3de.png",cardText:"Entry: Summon a zombie from your Hand that costs 2 or less"},
-	"Zyclone": {faction: "Air",rank:"Officer",name:"Zyclone",cost:5,type:"Walker",attack:2,defense:3,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/055.9d1dd837.png",cardText:"Entry: Return all zombies that cost 3 or less to their owner’s hands"},
-	"Defender": {faction: "Earth",rank:"Commander",name:"Defender",cost:8,type:"Walker",attack:4,defense:6,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/060.f87f2c2f.png",cardText:"Entry: Give ally Earth zombies that cost 2 or less Heavy"},
-	"Bloomer": {faction: "Life",rank:"Minion",name:"Bloomer",cost:2,type:"Walker",attack:1,defense:1,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/075.55501caf.png",cardText:"Entry: Draw a card if you have a Life zombie in play"},
-	"EverlaZting": {faction: "Life",rank:"Officer",name:"EverlaZting",cost:4,type:"Walker",attack:2,defense:3,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/076.273cf4c0.png",cardText:"Death: Shuffle this card into your deck"},
-	"Healz": {faction: "Life",rank:"Officer",name:"Healz",cost:4,type:"Walker",attack:2,defense:3,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/077.e8941de8.png",cardText:"Entry: Overlord +3 Def. If Overlord 10 Def or less, Overlord +5 Def"},
-	"Rainz": {faction: "Life",rank:"Commander",name:"Rainz",cost:6,type:"Walker",attack:3,defense:4,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/078.70f77df4.png",cardText:"Entry: Restore 10 Def randomly split among allies"},
-	"RelentleZZ": {faction: "Toxic",rank:"Officer",name:"RelentleZZ",cost:3,type:"Walker",attack:3,defense:6,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/083.044155cd.png",cardText:"Entry: 2 damage to this zombie"},
-	"Polluter": {faction: "Toxic",rank:"Officer",name:"Polluter",cost:4,type:"Walker",attack:3,defense:3,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/084.b59d0b6c.png",cardText:"Death: Gain 1 goo"},
-	"Zludge": {faction: "Toxic",rank:"Commander",name:"Zludge",cost:5,type:"Walker",attack:4,defense:4,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/085.57feb6bb.png",cardText:"Rage: +2 attack"},
-	"Zub-Zero": {faction: "Water",rank:"Commander",name:"Zub-Zero",cost:7,type:"Walker",attack:4,defense:5,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/089.c3628541.png",cardText:"Entry: 3 Damage to a Zombie, if it survives Freeze it"},
-	"Blizzard": {faction: "Water",rank:"Commander",name:"Blizzard",cost:6,type:"Walker",attack:3,defense:4,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/090.57a36e96.png",cardText:"Entry: Freeze all enemy zombies"},
-	"Breezee": {faction: "Air",rank:"Minion",name:"Breezee",cost:1,type:"Walker",attack:1,defense:1,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/091.bdb011c4.png",cardText:""},
-	"Zhocker": {faction: "Air",rank:"Minion",name:"Zhocker",cost:1,type:"Walker",attack:0,defense:2,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/093.d908c5b4.png",cardText:"Dealyed 1: +2 Attack"},
-	"Ztorm Shield": {faction: "Air",rank:"Commander",name:"Ztorm Shield",cost:6,type:"Walker",attack:4,defense:4,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/094.84b87d98.png",cardText:"Guard, Entry: Give adjacent zombies guard"},
-	"Zquall": {faction: "Air",rank:"Commander",name:"Zquall",cost:6,type:"Walker",attack:4,defense:6,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/095.6e29ed51.png",cardText:"Entry: Put 2 Air zombies that cost 2 goo from your Hand to play."},
-	"Draft": {faction: "Air",rank:"Commander",name:"Draft",cost:5,type:"Walker",attack:4,defense:5,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/096.cf9e379a.png",cardText:"Entry: Draw a card from enemy deck"},
-	"MonZoon": {faction: "Air",rank:"Commander",name:"MonZoon",cost:9,type:"Walker",attack:6,defense:6,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/097.aeed86de.png",cardText:"Costs 1 less for each Air zombie in your hand"},
-	"Slab": {faction: "Earth",rank:"Minion",name:"Slab",cost:3,type:"Walker",attack:3,defense:4,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/101.aafc97bf.png",cardText:""},
-	"Groundy": {faction: "Earth",rank:"Officer",name:"Groundy",cost:5,type:"Walker",attack:5,defense:5,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/102.e57b6fbe.png",cardText:"Entry: If this is your only zombie in play, it gets Heavy"},
-	"Gaea ": {faction: "Earth",rank:"General",name:"Gaea ",cost:11,type:"Walker",attack:4,defense:7,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/104.2174495b.png",cardText:"Entry: All ally Earth zombies in play get +1 Atk"},
-	"Alpha": {faction: "Fire",rank:"Officer",name:"Alpha",cost:5,type:"Walker",attack:3,defense:4,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/110.9be21af1.png",cardText:"Entry: All other Ally zombies in play get Feral"},
-	"Volcan": {faction: "Fire",rank:"Commander",name:"Volcan",cost:6,type:"Walker",attack:5,defense:5,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/111.42775b95.png",cardText:"Cannot Attack, End: 5 damage to a random enemy"},
-	"Zplitter": {faction: "Life",rank:"Commander",name:"Zplitter",cost:7,type:"Walker",attack:3,defense:4,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/121.36625512.png",cardText:"Entry: Place another copy of this minion in play"},
-	"Zeeder": {faction: "Life",rank:"Commander",name:"Zeeder",cost:5,type:"Walker",attack:2,defense:5,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/124.2f56ec5c.png",cardText:"End: Summon a 0/2 zombie with Heavy"},
-	"Blight": {faction: "Life",rank:"Commander",name:"Blight",cost:6,type:"Walker",attack:0,defense:6,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/125.cb95dc4c.png",cardText:"Delayed 3: Place two 4/4 copies of this zombie in play then Destroy this"},
-	"Germ": {faction: "Toxic",rank:"Minion",name:"Germ",cost:1,type:"Walker",attack:2,defense:1,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/126.4bb627cd.png",cardText:""},
-	"Ectoplasm": {faction: "Toxic",rank:"Minion",name:"Ectoplasm",cost:1,type:"Walker",attack:2,defense:2,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/127.c7a1de83.png",cardText:"Entry: Lose 1 goo"},
-	"Zlopper": {faction: "Toxic",rank:"Commander",name:"Zlopper",cost:7,type:"Walker",attack:3,defense:5,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/129.04f938e2.png",cardText:" +1 attack to all ally Toxic zombies"},
-	"Boomer": {faction: "Toxic",rank:"Commander",name:"Boomer",cost:9,type:"Walker",attack:6,defense:6,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/130.4590c6b7.png",cardText:"Death: Adjacent zombies get +2 Atk"},
-	"Zteroid": {faction: "Toxic",rank:"Commander",name:"Zteroid",cost:6,type:"Walker",attack:5,defense:4,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/131.f1ca7a1e.png",cardText:"Death: All ally zombies get +2 Atk until end of turn"},
-	"GooZilla": {faction: "Toxic",rank:"General",name:"GooZilla",cost:8,type:"Walker",attack:1,defense:1,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/132.0ced51c2.png",cardText:"Entry: Return 4 Goo, and use all your goo for 2x Atk/Def"},
-	"Vortex": {faction: "Water",rank:"General",name:"Vortex",cost:11,type:"Walker",attack:6,defense:7,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/135.7f21a501.png",cardText:"Entry: replace ally water zombies in play with stronger ones"},
-	"Zplash": {faction: "Water",rank:"Commander",name:"Zplash",cost:6,type:"Walker",attack:4,defense:4,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/137.0259eb4c.png",cardText:"Entry: 1 damage to random enemy for each water zombie in your hand "},
-	"Froztbite": {faction: "Water",rank:"Commander",name:"Froztbite",cost:4,type:"Walker",attack:0,defense:6,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/139.c706f320.png",cardText:"Delayed 1: +6 Atk"},
-	"Zpring": {faction: "Water",rank:"Commander",name:"Zpring",cost:5,type:"Walker",attack:3,defense:4,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/140.5660f917.png",cardText:"As long as this is in play you have 1 extra goo"},
-	"Maelstrom": {faction: "Water",rank:"Commander",name:"Maelstrom",cost:8,type:"Walker",attack:5,defense:5,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/141.5b3f294f.png",cardText:"Entry: Return all other zombies to their owners' Hands"},
-	"Fumez": {faction: "Air",rank:"Minion",name:"Fumez",cost:2,type:"Walker",attack:1,defense:1,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/142.f4a30ac6.png",cardText:"Entry: Add a Tainted Goo to your hand"},
-	"Gaz": {faction: "Air",rank:"Officer",name:"Gaz",cost:4,type:"Walker",attack:2,defense:2,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/143.cf11e66a.png",cardText:"Guard, add a Corrupted Goo to your hand"},
-	"Zap": {faction: "Life",rank:"Minion",name:"Zap",cost:1,type:"Walker",attack:1,defense:1,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/148.32bf00a6.png",cardText:"Overflow 3: Summon a 1/1 enemy zombie minion"},
-	"Cactuz": {faction: "Life",rank:"Officer",name:"Cactuz",cost:4,type:"Walker",attack:2,defense:3,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/149.0b0ad3ce.png",cardText:"Overflow 6, Entry: Summon two 2/2 enemy zombie minions"},
-	"Zeptic": {faction: "Toxic",rank:"Minion",name:"Zeptic",cost:1,type:"Walker",attack:1,defense:1,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/150.329609ee.png",cardText:"Overflow 2, deal 2 damage to your Overlord"},
-	"Hazzard": {faction: "Toxic",rank:"Officer",name:"Hazzard",cost:5,type:"Walker",attack:4,defense:4,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/151.ffcfdd5f.png",cardText:"Overflow 7, deal 4 damage to your Overlord"},
-	"Osmoziz": {faction: "Water",rank:"Minion",name:"Osmoziz",cost:2,type:"Walker",attack:1,defense:2,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/152.257b561a.png",cardText:"Entry: Freeze a random ally, add Tainted Goo to your hand"},
-	"Geyzer": {faction: "Water",rank:"Officer",name:"Geyzer",cost:4,type:"Walker",attack:2,defense:3,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/153.db6b8359.png",cardText:"Entry: Freeze 2 random allies, add Corrupted Goo to your hand"}
+	"Embryo #026": {faction: "Toxic",rank:"Minion",name:"Embryo #026",count:-1,cost:-1,type:"Embryo",attack:-1,defense:-1,image:"",cardText:"?"},
+"Zeeter": {faction: "Toxic",rank:"Officer",name:"Zeeter",count:-1,cost:5,type:"Walker",attack:1,defense:1,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/047.53e740d6.png",cardText:"Entry: Devour an ally zombie, get its Atk and Def"},
+"Embryo #052": {faction: "Air",rank:"Minion",name:"Embryo #052",count:-1,cost:-1,type:"Embryo",attack:-1,defense:-1,image:"",cardText:"?"},
+"Embryo #054": {faction: "Air",rank:"Officer",name:"Embryo #054",count:-1,cost:-1,type:"Embryo",attack:-1,defense:-1,image:"",cardText:"?"},
+"Embryo #056": {faction: "Earth",rank:"Minion",name:"Embryo #056",count:-1,cost:-1,type:"Embryo",attack:-1,defense:-1,image:"",cardText:"?"},
+"Embryo #057": {faction: "Earth",rank:"Minion",name:"Embryo #057",count:-1,cost:-1,type:"Embryo",attack:-1,defense:-1,image:"",cardText:"?"},
+"Embryo #058": {faction: "Earth",rank:"Minion",name:"Embryo #058",count:-1,cost:-1,type:"Embryo",attack:-1,defense:-1,image:"",cardText:"?"},
+"Embryo #099": {faction: "Earth",rank:"Minion",name:"Embryo #099",count:-1,cost:-1,type:"Embryo",attack:-1,defense:-1,image:"",cardText:"?"},
+"Embryo #062": {faction: "Fire",rank:"Minion",name:"Embryo #062",count:-1,cost:-1,type:"Embryo",attack:-1,defense:-1,image:"",cardText:"?"},
+"Embryo #063": {faction: "Fire",rank:"Minion",name:"Embryo #063",count:-1,cost:-1,type:"Embryo",attack:-1,defense:-1,image:"",cardText:"?"},
+"Embryo #064": {faction: "Fire",rank:"Minion",name:"Embryo #064",count:-1,cost:-1,type:"Embryo",attack:-1,defense:-1,image:"",cardText:"?"},
+"Embryo #065": {faction: "Fire",rank:"Officer",name:"Embryo #065",count:-1,cost:-1,type:"Embryo",attack:-1,defense:-1,image:"",cardText:"?"},
+"Embryo #073": {faction: "Life",rank:"Minion",name:"Embryo #073",count:-1,cost:-1,type:"Embryo",attack:-1,defense:-1,image:"",cardText:"?"},
+"Embryo #074": {faction: "Life",rank:"Minion",name:"Embryo #074",count:-1,cost:-1,type:"Embryo",attack:-1,defense:-1,image:"",cardText:"?"},
+"Embryo #079": {faction: "Toxic",rank:"Minion",name:"Embryo #079",count:-1,cost:-1,type:"Embryo",attack:-1,defense:-1,image:"",cardText:"?"},
+"Embryo #080": {faction: "Toxic",rank:"Minion",name:"Embryo #080",count:-1,cost:-1,type:"Embryo",attack:-1,defense:-1,image:"",cardText:"?"},
+"Embryo #081": {faction: "Toxic",rank:"Minion",name:"Embryo #081",count:-1,cost:-1,type:"Embryo",attack:-1,defense:-1,image:"",cardText:"?"},
+"Embryo #086": {faction: "Water",rank:"Minion",name:"Embryo #086",count:-1,cost:-1,type:"Embryo",attack:-1,defense:-1,image:"",cardText:"?"},
+"Embryo #087": {faction: "Water",rank:"Minion",name:"Embryo #087",count:-1,cost:-1,type:"Embryo",attack:-1,defense:-1,image:"",cardText:"?"},
+"Embryo #088": {faction: "Water",rank:"Minion",name:"Embryo #088",count:-1,cost:-1,type:"Embryo",attack:-1,defense:-1,image:"",cardText:"?"},
+"Embryo #106": {faction: "Fire",rank:"Minion",name:"Embryo #106",count:-1,cost:-1,type:"Embryo",attack:-1,defense:-1,image:"",cardText:"?"},
+"Embryo #109": {faction: "Fire",rank:"Officer",name:"Embryo #109",count:-1,cost:-1,type:"Embryo",attack:-1,defense:-1,image:"",cardText:"?"},
+"Embryo #120": {faction: "Life",rank:"Minion",name:"Embryo #120",count:-1,cost:-1,type:"Embryo",attack:-1,defense:-1,image:"",cardText:"?"},
+"Embryo #122": {faction: "Life",rank:"Minion",name:"Embryo #122",count:-1,cost:-1,type:"Embryo",attack:-1,defense:-1,image:"",cardText:"?"},
+"Embryo #123": {faction: "Life",rank:"Minion",name:"Embryo #123",count:-1,cost:-1,type:"Embryo",attack:-1,defense:-1,image:"",cardText:"?"},
+"Embryo #133": {faction: "Water",rank:"Minion",name:"Embryo #133",count:-1,cost:-1,type:"Embryo",attack:-1,defense:-1,image:"",cardText:"?"},
+"Embryo #134": {faction: "Water",rank:"Minion",name:"Embryo #134",count:-1,cost:-1,type:"Embryo",attack:-1,defense:-1,image:"",cardText:"?"},
+"Embryo #136": {faction: "Water",rank:"Officer",name:"Embryo #136",count:-1,cost:-1,type:"Embryo",attack:-1,defense:-1,image:"",cardText:"?"},
+"Embryo #138": {faction: "Water",rank:"Officer",name:"Embryo #138",count:-1,cost:-1,type:"Embryo",attack:-1,defense:-1,image:"",cardText:"?"},
+"Burrrnn": {faction: "Fire",rank:"Officer",name:"Burrrnn",count:-1,cost:3,type:"Feral",attack:2,defense:2,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/011.0f9eb3b9.png",cardText:"Feral"},
+"Fire-Maw": {faction: "Fire",rank:"Commander",name:"Fire-Maw",count:-1,cost:5,type:"Feral",attack:3,defense:3,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/014.457223ea.png",cardText:"Feral, Flash"},
+"Cerberus": {faction: "Fire",rank:"General",name:"Cerberus",count:-1,cost:12,type:"Feral",attack:7,defense:8,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/037.c5231893.png",cardText:"Attack: Deal damage before receiving damage"},
+"Enrager": {faction: "Fire",rank:"Commander",name:"Enrager",count:-1,cost:6,type:"Feral",attack:5,defense:4,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/066.bea11a94.png",cardText:"Feral, Entry: If your overlord has 10 or less Def or less this gets +2 Atk"},
+"Zhampion": {faction: "Fire",rank:"Commander",name:"Zhampion",count:-1,cost:5,type:"Feral",attack:5,defense:2,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/067.4cdb41ac.png",cardText:"Feral, Entry: Summon two 1/1 enemy Pyromaz zombies"},
+"Azzazzin": {faction: "Toxic",rank:"Officer",name:"Azzazzin",count:-1,cost:3,type:"Feral",attack:5,defense:1,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/082.d6d1787d.png",cardText:"Blitz"},
+"Banshee": {faction: "Air",rank:"Minion",name:"Banshee",count:-1,cost:2,type:"Feral",attack:2,defense:1,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/092.ebe28d3d.png",cardText:"Feral"},
+"Sparky": {faction: "Fire",rank:"Minion",name:"Sparky",count:-1,cost:1,type:"Feral",attack:2,defense:1,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/105.5314502a.png",cardText:"Feral, End: 1 damage to this"},
+"BurZt": {faction: "Fire",rank:"Minion",name:"BurZt",count:-1,cost:3,type:"Feral",attack:4,defense:1,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/108.43a0878f.png",cardText:"Feral, Entry: Cannot attack the enemy Overlord"},
+"Quazi": {faction: "Fire",rank:"Minion",name:"Quazi",count:-1,cost:1,type:"Feral",attack:0,defense:1,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/146.7a39e3bd.png",cardText:"Feral, Overflow 2, End: 2 damage to this and adjacent zombies"},
+"Modo": {faction: "Fire",rank:"Officer",name:"Modo",count:-1,cost:3,type:"Feral",attack:2,defense:2,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/147.3c494a50.png",cardText:"Feral, Overflow 5, End: 4 damage to this and adjacent zombies"},
+"Golem": {faction: "Earth",rank:"Officer",name:"Golem",count:-1,cost:5,type:"Heavy",attack:2,defense:6,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/006.407ace03.png",cardText:"Heavy"},
+"Mountain": {faction: "Earth",rank:"General",name:"Mountain",count:-1,cost:11,type:"Heavy",attack:6,defense:8,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/008.6c507586.png",cardText:"Heavy, Swing 4"},
+"Gargantua": {faction: "Fire",rank:"General",name:"Gargantua",count:-1,cost:11,type:"Heavy",attack:6,defense:8,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/013.3db7d0e3.png",cardText:"Entry: 2 damage to all enemies"},
+"Cherno-bill": {faction: "Toxic",rank:"General",name:"Cherno-bill",count:-1,cost:11,type:"Heavy",attack:7,defense:9,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/027.4c079764.png",cardText:"Heavy, Death: 3 damage to all zombies"},
+"Bouncer": {faction: "Air",rank:"Officer",name:"Bouncer",count:-1,cost:4,type:"Heavy",attack:2,defense:3,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/032.423e2493.png",cardText:"Heavy"},
+"Tiny": {faction: "Earth",rank:"Officer",name:"Tiny",count:-1,cost:3,type:"Heavy",attack:0,defense:4,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/035.a23204d1.png",cardText:"Heavy"},
+"Znowman": {faction: "Water",rank:"Minion",name:"Znowman",count:-1,cost:3,type:"Heavy",attack:0,defense:3,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/049.09656e4b.png",cardText:"Heavy, enemies that attack this become frozen"},
+"Spiker": {faction: "Earth",rank:"Officer",name:"Spiker",count:-1,cost:3,type:"Heavy",attack:2,defense:3,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/059.cf0fac15.png",cardText:"Heavy, Attack: +1 damage to Heavy zombies"},
+"IgneouZ": {faction: "Earth",rank:"Commander",name:"IgneouZ",count:-1,cost:4,type:"Heavy",attack:3,defense:3,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/061.4011ef1b.png",cardText:"Heavy, Entry: If your Overlord has 10 Def or less, this gets +2 Def"},
+"Blocker": {faction: "Earth",rank:"Minion",name:"Blocker",count:-1,cost:1,type:"Heavy",attack:0,defense:3,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/098.4e18a9d0.png",cardText:"Heavy"},
+"Hardy": {faction: "Earth",rank:"Minion",name:"Hardy",count:-1,cost:3,type:"Heavy",attack:3,defense:3,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/100.6a003c73.png",cardText:"Heavy"},
+"Pyrite": {faction: "Earth",rank:"Commander",name:"Pyrite",count:-1,cost:5,type:"Heavy",attack:0,defense:8,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/103.61e97a7a.png",cardText:"Heavy, Delayed 2: This loses Heavy but gains +4 Atk"},
+"Firewall": {faction: "Fire",rank:"Minion",name:"Firewall",count:-1,cost:2,type:"Heavy",attack:2,defense:1,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/107.9b2c74c6.png",cardText:"Heavy"},
+"Wazte": {faction: "Toxic",rank:"Minion",name:"Wazte",count:-1,cost:2,type:"Heavy",attack:3,defense:3,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/128.c0cca82a.png",cardText:"Heavy, Entry: Lose 1 goo bottle"},
+"Pit": {faction: "Earth",rank:"Minion",name:"Pit",count:-1,cost:1,type:"Heavy",attack:0,defense:2,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/144.1e565b49.png",cardText:"Heavy, Entry: Add a Tainted Goo to your hand"},
+"Crater": {faction: "Earth",rank:"Officer",name:"Crater",count:-1,cost:3,type:"Heavy",attack:1,defense:4,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/145.bbfb1fe0.png",cardText:"Heavy, Entry: Add a Corruputed Goo to your hand"},
+"Stapler": {faction: "Item",rank:"Item",name:"Stapler",count:-1,cost:4,type:"Item",attack:-1,defense:-1,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/015.83178c67.png",cardText:"Restore 4 Def to a zombie"},
+"Nail Bomb": {faction: "Item",rank:"Item",name:"Nail Bomb",count:-1,cost:4,type:"Item",attack:-1,defense:-1,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/016.acc1ab1b.png",cardText:"4 damage to a zombie, Swing 4"},
+"Goo Bottles": {faction: "Item",rank:"Item",name:"Goo Bottles",count:-1,cost:4,type:"Item",attack:-1,defense:-1,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/017.79cc9efa.png",cardText:"Get 2 empty goo vials"},
+"Chainsaw": {faction: "Item",rank:"Item",name:"Chainsaw",count:-1,cost:2,type:"Item",attack:-1,defense:-1,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/018.00832a30.png",cardText:"Attack: 1 damage to your Overlord"},
+"Molotov": {faction: "Item",rank:"Item",name:"Molotov",count:-1,cost:4,type:"Item",attack:-1,defense:-1,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/039.71d9d4b5.png",cardText:"3 damage to a zombie, Swing 3"},
+"Bat": {faction: "Item",rank:"Item",name:"Bat",count:-1,cost:3,type:"Item",attack:-1,defense:-1,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/040.5447577c.png",cardText:"2 damage to a zombie and Distract it"},
+"Item #041": {faction: "Item",rank:"Item",name:"Item #041",count:-1,cost:-1,type:"Item",attack:-1,defense:-1,image:"",cardText:"?"},
+"Whistle": {faction: "Item",rank:"Item",name:"Whistle",count:-1,cost:0,type:"Item",attack:-1,defense:-1,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/068.d06b9399.png",cardText:"Draw a card"},
+"Item #069": {faction: "Item",rank:"Item",name:"Item #069",count:-1,cost:-1,type:"Item",attack:-1,defense:-1,image:"",cardText:"?"},
+"Goo Beaker": {faction: "Item",rank:"Item",name:"Goo Beaker",count:-1,cost:2,type:"Item",attack:-1,defense:-1,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/070.b19b5d0e.png",cardText:"Get 1 empty goo vial"},
+"Junk Spear": {faction: "Item",rank:"Item",name:"Junk Spear",count:-1,cost:4,type:"Item",attack:-1,defense:-1,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/071.4d297bcc.png",cardText:"Damage enemy Overlord equal to the number of items played this game"},
+"Item #072": {faction: "Item",rank:"Item",name:"Item #072",count:-1,cost:-1,type:"Item",attack:-1,defense:-1,image:"",cardText:"?"},
+"Item #112": {faction: "Item",rank:"Item",name:"Item #112",count:-1,cost:-1,type:"Item",attack:-1,defense:-1,image:"",cardText:"?"},
+"Extinguisher": {faction: "Item",rank:"Item",name:"Extinguisher",count:-1,cost:4,type:"Item",attack:-1,defense:-1,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/113.6b0ef1c7.png",cardText:"Entry: Freeze all enemy zombies"},
+"Lawnmower": {faction: "Item",rank:"Item",name:"Lawnmower",count:-1,cost:6,type:"Item",attack:-1,defense:-1,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/114.e6baeb10.png",cardText:"Entry: 2 damage to all enemy zombies"},
+"Item #115": {faction: "Item",rank:"Item",name:"Item #115",count:-1,cost:-1,type:"Item",attack:-1,defense:-1,image:"",cardText:"?"},
+"Item #116": {faction: "Item",rank:"Item",name:"Item #116",count:-1,cost:-1,type:"Item",attack:-1,defense:-1,image:"",cardText:"?"},
+"Fresh Meat": {faction: "Item",rank:"Item",name:"Fresh Meat",count:-1,cost:5,type:"Item",attack:-1,defense:-1,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/117.f5e4614b.png",cardText:"Entry: All enemy zombies get -3 Atk until end of turn"},
+"Item #118": {faction: "Item",rank:"Item",name:"Item #118",count:-1,cost:-1,type:"Item",attack:-1,defense:-1,image:"",cardText:"?"},
+"Item #119": {faction: "Item",rank:"Item",name:"Item #119",count:-1,cost:-1,type:"Item",attack:-1,defense:-1,image:"",cardText:"?"},
+"Boomstick": {faction: "Item",rank:"Item",name:"Boomstick",count:-1,cost:2,type:"Item",attack:-1,defense:-1,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/154.e2526aa8.png",cardText:"2 damage to 3 random zombies in play"},
+"Tainted Goo": {faction: "Item",rank:"Item",name:"Tainted Goo",count:-1,cost:2,type:"Item",attack:-1,defense:-1,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/155.a497772d.png",cardText:"Overflow 3, disables 1 goo vial for next turn"},
+"Corrupted Goo": {faction: "Item",rank:"Item",name:"Corrupted Goo",count:-1,cost:4,type:"Item",attack:-1,defense:-1,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/156.3409d305.png",cardText:"Overflow 6, disables 2 goo vials for next turn"},
+"Whizpar": {faction: "Air",rank:"Minion",name:"Whizpar",count:-1,cost:1,type:"Walker",attack:1,defense:1,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/001.477fc429.png",cardText:"Attack: +1 damage to Water zombies"},
+"Pushhh": {faction: "Air",rank:"Officer",name:"Pushhh",count:-1,cost:3,type:"Walker",attack:3,defense:3,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/002.49b271fc.png",cardText:"Entry: Return a zombie to its owner’s hand"},
+"Ztormmcaller": {faction: "Air",rank:"Officer",name:"Ztormmcaller",count:-1,cost:5,type:"Walker",attack:3,defense:3,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/003.14628065.png",cardText:"Entry: 1 damage to a zombie, Swing 1"},
+"ZeuZ": {faction: "Air",rank:"General",name:"ZeuZ",count:-1,cost:11,type:"Walker",attack:5,defense:6,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/004.3a35a747.png",cardText:"Entry: 3 damage to all enemies"},
+"Rockky": {faction: "Earth",rank:"Minion",name:"Rockky",count:-1,cost:1,type:"Walker",attack:1,defense:1,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/005.83e3f5ca.png",cardText:"Attack: +1 damage to Air zombies"},
+"Bolderr": {faction: "Earth",rank:"Minion",name:"Bolderr",count:-1,cost:3,type:"Walker",attack:1,defense:2,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/007.a7d48ecf.png",cardText:"Entry: 1 damage to a zombie"},
+"Walley": {faction: "Earth",rank:"Officer",name:"Walley",count:-1,cost:4,type:"Walker",attack:2,defense:2,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/009.bb978488.png",cardText:"Entry: Adjacent zombies get Heavy"},
+"Pyromaz": {faction: "Fire",rank:"Minion",name:"Pyromaz",count:-1,cost:1,type:"Walker",attack:1,defense:1,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/010.d7b2dc68.png",cardText:"Attack: +1 damage to Life zombies"},
+"Cynderman": {faction: "Fire",rank:"Officer",name:"Cynderman",count:-1,cost:4,type:"Walker",attack:2,defense:3,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/012.d81cf60e.png",cardText:"Entry: 2 damage to a zombie"},
+"Azuraz": {faction: "Life",rank:"Minion",name:"Azuraz",count:-1,cost:1,type:"Walker",attack:1,defense:1,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/019.98198c0c.png",cardText:"Attack: +1 damage to Life zombies"},
+"Shroom": {faction: "Life",rank:"Officer",name:"Shroom",count:-1,cost:4,type:"Walker",attack:4,defense:2,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/020.cd524c2b.png",cardText:"Entry: 2 damage to a zombie"},
+"Vindrom": {faction: "Life",rank:"Officer",name:"Vindrom",count:-1,cost:4,type:"Walker",attack:2,defense:3,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/021.e46634a9.png",cardText:"Attack: Freeze zombie"},
+"Shammann": {faction: "Life",rank:"General",name:"Shammann",count:-1,cost:11,type:"Walker",attack:5,defense:6,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/022.aa7deffa.png",cardText:"Turn: Summon two 1/1 zombie minions"},
+"Puffer": {faction: "Life",rank:"Officer",name:"Puffer",count:-1,cost:3,type:"Walker",attack:2,defense:2,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/023.28f20695.png",cardText:"Entry: +1 attack to all Life Zombies in play"},
+"Poizom": {faction: "Toxic",rank:"Minion",name:"Poizom",count:-1,cost:1,type:"Walker",attack:1,defense:1,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/024.c49130a9.png",cardText:"Attack: +1 damage to Earth zombies"},
+"Ghoul": {faction: "Toxic",rank:"Officer",name:"Ghoul",count:-1,cost:2,type:"Walker",attack:3,defense:2,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/025.b2eb2912.png",cardText:"Attack: -1 Attack"},
+"Izze": {faction: "Water",rank:"Minion",name:"Izze",count:-1,cost:1,type:"Walker",attack:1,defense:1,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/028.4327b5ae.png",cardText:"Attack: Freeze Target"},
+"Jetter": {faction: "Water",rank:"Officer",name:"Jetter",count:-1,cost:4,type:"Walker",attack:3,defense:3,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/029.21387fd8.png",cardText:"Entry: 1 damage to a zombie"},
+"Freezzee": {faction: "Water",rank:"Officer",name:"Freezzee",count:-1,cost:5,type:"Walker",attack:3,defense:3,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/030.7e517c90.png",cardText:"Entry: Freeze zombie and adjacent zombies, 2 damage If frozen"},
+"Tzunamy": {faction: "Water",rank:"General",name:"Tzunamy",count:-1,cost:11,type:"Walker",attack:6,defense:6,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/031.08d214ed.png",cardText:"Entry: 2 damage to all enemies, then freeze them"},
+"Mind Flayer": {faction: "Air",rank:"General",name:"Mind Flayer",count:-1,cost:7,type:"Walker",attack:5,defense:5,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/033.497a37d4.png",cardText:"Entry: Take control of an enemy zombie"},
+"Wheezy": {faction: "Air",rank:"Minion",name:"Wheezy",count:-1,cost:2,type:"Walker",attack:1,defense:2,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/034.b2c1129b.png",cardText:"Entry: A random card in your hand gets -1 cost"},
+"Earthshaker": {faction: "Earth",rank:"Commander",name:"Earthshaker",count:-1,cost:5,type:"Walker",attack:4,defense:4,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/036.f0b573fb.png",cardText:"Entry: Destroy a Heavy zombie"},
+"Werezomb": {faction: "Fire",rank:"Officer",name:"Werezomb",count:-1,cost:3,type:"Walker",attack:1,defense:1,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/038.92dd6843.png",cardText:"Entry: Ally zombie gets Feral"},
+"Z-Virus": {faction: "Life",rank:"General",name:"Z-Virus",count:-1,cost:11,type:"Walker",attack:0,defense:0,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/042.26a6159a.png",cardText:"Devour all ally zombies, gain their Atk and Def"},
+"Yggdrazil": {faction: "Life",rank:"General",name:"Yggdrazil",count:-1,cost:11,type:"Walker",attack:4,defense:5,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/043.125e56d7.png",cardText:"Entry: Reanimate all Life zombies that died this match"},
+"Sapper": {faction: "Life",rank:"Officer",name:"Sapper",count:-1,cost:5,type:"Walker",attack:1,defense:4,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/044.bfbbae0d.png",cardText:"Attack: Restore 1 Def for each damage this deals"},
+"Keeper": {faction: "Life",rank:"Officer",name:"Keeper",count:-1,cost:3,type:"Walker",attack:1,defense:3,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/045.37f35f8c.png",cardText:"Entry: Summon a 1/1 Feral zombie minion"},
+"Zpitter": {faction: "Toxic",rank:"Minion",name:"Zpitter",count:-1,cost:3,type:"Walker",attack:2,defense:2,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/046.8fbf9ab8.png",cardText:"Entry: 1 damage to a random enemy"},
+"Zhatterer": {faction: "Water",rank:"Minion",name:"Zhatterer",count:-1,cost:5,type:"Walker",attack:2,defense:4,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/048.d8f858fa.png",cardText:"Entry: Destroy a frozen zombie"},
+"Soothsayer": {faction: "Air",rank:"Minion",name:"Soothsayer",count:-1,cost:2,type:"Walker",attack:1,defense:1,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/050.aae4d06d.png",cardText:"Entry: Draw a card"},
+"Buffer": {faction: "Air",rank:"Minion",name:"Buffer",count:-1,cost:2,type:"Walker",attack:1,defense:1,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/051.9e607986.png",cardText:"Death: Give an ally zombie +1 Atk"},
+"Dragger": {faction: "Air",rank:"Officer",name:"Dragger",count:-1,cost:3,type:"Walker",attack:1,defense:2,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/053.fda0b3de.png",cardText:"Entry: Summon a zombie from your Hand that costs 2 or less"},
+"Zyclone": {faction: "Air",rank:"Officer",name:"Zyclone",count:-1,cost:5,type:"Walker",attack:2,defense:3,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/055.9d1dd837.png",cardText:"Entry: Return all zombies that cost 3 or less to their owner’s hands"},
+"Defender": {faction: "Earth",rank:"Commander",name:"Defender",count:-1,cost:8,type:"Walker",attack:4,defense:6,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/060.f87f2c2f.png",cardText:"Entry: Give ally Earth zombies that cost 2 or less Heavy"},
+"Bloomer": {faction: "Life",rank:"Minion",name:"Bloomer",count:-1,cost:2,type:"Walker",attack:1,defense:1,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/075.55501caf.png",cardText:"Entry: Draw a card if you have a Life zombie in play"},
+"EverlaZting": {faction: "Life",rank:"Officer",name:"EverlaZting",count:-1,cost:4,type:"Walker",attack:2,defense:3,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/076.273cf4c0.png",cardText:"Death: Shuffle this card into your deck"},
+"Healz": {faction: "Life",rank:"Officer",name:"Healz",count:-1,cost:4,type:"Walker",attack:2,defense:3,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/077.e8941de8.png",cardText:"Entry: Overlord +3 Def. If Overlord 10 Def or less, Overlord +5 Def"},
+"Rainz": {faction: "Life",rank:"Commander",name:"Rainz",count:-1,cost:6,type:"Walker",attack:3,defense:4,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/078.70f77df4.png",cardText:"Entry: Restore 10 Def randomly split among allies"},
+"RelentleZZ": {faction: "Toxic",rank:"Officer",name:"RelentleZZ",count:-1,cost:3,type:"Walker",attack:3,defense:6,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/083.044155cd.png",cardText:"Entry: 2 damage to this zombie"},
+"Polluter": {faction: "Toxic",rank:"Officer",name:"Polluter",count:-1,cost:4,type:"Walker",attack:3,defense:3,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/084.b59d0b6c.png",cardText:"Death: Gain 1 goo"},
+"Zludge": {faction: "Toxic",rank:"Commander",name:"Zludge",count:-1,cost:5,type:"Walker",attack:4,defense:4,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/085.57feb6bb.png",cardText:"Rage: +2 attack"},
+"Zub-Zero": {faction: "Water",rank:"Commander",name:"Zub-Zero",count:-1,cost:7,type:"Walker",attack:4,defense:5,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/089.c3628541.png",cardText:"Entry: 3 Damage to a Zombie, if it survives Freeze it"},
+"Blizzard": {faction: "Water",rank:"Commander",name:"Blizzard",count:-1,cost:6,type:"Walker",attack:3,defense:4,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/090.57a36e96.png",cardText:"Entry: Freeze all enemy zombies"},
+"Breezee": {faction: "Air",rank:"Minion",name:"Breezee",count:-1,cost:1,type:"Walker",attack:1,defense:1,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/091.bdb011c4.png",cardText:""},
+"Zhocker": {faction: "Air",rank:"Minion",name:"Zhocker",count:-1,cost:1,type:"Walker",attack:0,defense:2,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/093.d908c5b4.png",cardText:"Dealyed 1: +2 Attack"},
+"Ztorm Shield": {faction: "Air",rank:"Commander",name:"Ztorm Shield",count:-1,cost:6,type:"Walker",attack:4,defense:4,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/094.84b87d98.png",cardText:"Guard, Entry: Give adjacent zombies guard"},
+"Zquall": {faction: "Air",rank:"Commander",name:"Zquall",count:-1,cost:6,type:"Walker",attack:4,defense:6,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/095.6e29ed51.png",cardText:"Entry: Put 2 Air zombies that cost 2 goo from your Hand to play."},
+"Draft": {faction: "Air",rank:"Commander",name:"Draft",count:-1,cost:5,type:"Walker",attack:4,defense:5,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/096.cf9e379a.png",cardText:"Entry: Draw a card from enemy deck"},
+"MonZoon": {faction: "Air",rank:"Commander",name:"MonZoon",count:-1,cost:9,type:"Walker",attack:6,defense:6,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/097.aeed86de.png",cardText:"Costs 1 less for each Air zombie in your hand"},
+"Slab": {faction: "Earth",rank:"Minion",name:"Slab",count:-1,cost:3,type:"Walker",attack:3,defense:4,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/101.aafc97bf.png",cardText:""},
+"Groundy": {faction: "Earth",rank:"Officer",name:"Groundy",count:-1,cost:5,type:"Walker",attack:5,defense:5,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/102.e57b6fbe.png",cardText:"Entry: If this is your only zombie in play, it gets Heavy"},
+"Gaea": {faction: "Earth",rank:"General",name:"Gaea",count:-1,cost:11,type:"Walker",attack:4,defense:7,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/104.2174495b.png",cardText:"Entry: All ally Earth zombies in play get +1 Atk"},
+"Alpha": {faction: "Fire",rank:"Officer",name:"Alpha",count:-1,cost:5,type:"Walker",attack:3,defense:4,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/110.9be21af1.png",cardText:"Entry: All other Ally zombies in play get Feral"},
+"Volcan": {faction: "Fire",rank:"Commander",name:"Volcan",count:-1,cost:6,type:"Walker",attack:5,defense:5,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/111.42775b95.png",cardText:"Cannot Attack, End: 5 damage to a random enemy"},
+"Zplitter": {faction: "Life",rank:"Commander",name:"Zplitter",count:-1,cost:7,type:"Walker",attack:3,defense:4,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/121.36625512.png",cardText:"Entry: Place another copy of this minion in play"},
+"Zeeder": {faction: "Life",rank:"Commander",name:"Zeeder",count:-1,cost:5,type:"Walker",attack:2,defense:5,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/124.2f56ec5c.png",cardText:"End: Summon a 0/2 zombie with Heavy"},
+"Blight": {faction: "Life",rank:"Commander",name:"Blight",count:-1,cost:6,type:"Walker",attack:0,defense:6,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/125.cb95dc4c.png",cardText:"Delayed 3: Place two 4/4 copies of this zombie in play then Destroy this"},
+"Germ": {faction: "Toxic",rank:"Minion",name:"Germ",count:-1,cost:1,type:"Walker",attack:2,defense:1,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/126.4bb627cd.png",cardText:""},
+"Ectoplasm": {faction: "Toxic",rank:"Minion",name:"Ectoplasm",count:-1,cost:1,type:"Walker",attack:2,defense:2,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/127.c7a1de83.png",cardText:"Entry: Lose 1 goo"},
+"Zlopper": {faction: "Toxic",rank:"Commander",name:"Zlopper",count:-1,cost:7,type:"Walker",attack:3,defense:5,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/129.04f938e2.png",cardText:" +1 attack to all ally Toxic zombies"},
+"Boomer": {faction: "Toxic",rank:"Commander",name:"Boomer",count:-1,cost:9,type:"Walker",attack:6,defense:6,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/130.4590c6b7.png",cardText:"Death: Adjacent zombies get +2 Atk"},
+"Zteroid": {faction: "Toxic",rank:"Commander",name:"Zteroid",count:-1,cost:6,type:"Walker",attack:5,defense:4,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/131.f1ca7a1e.png",cardText:"Death: All ally zombies get +2 Atk until end of turn"},
+"GooZilla": {faction: "Toxic",rank:"General",name:"GooZilla",count:-1,cost:8,type:"Walker",attack:1,defense:1,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/132.0ced51c2.png",cardText:"Entry: Return 4 Goo, and use all your goo for 2x Atk/Def"},
+"Vortex": {faction: "Water",rank:"General",name:"Vortex",count:-1,cost:11,type:"Walker",attack:6,defense:7,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/135.7f21a501.png",cardText:"Entry: replace ally water zombies in play with stronger ones"},
+"Zplash": {faction: "Water",rank:"Commander",name:"Zplash",count:-1,cost:6,type:"Walker",attack:4,defense:4,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/137.0259eb4c.png",cardText:"Entry: 1 damage to random enemy for each water zombie in your hand "},
+"Froztbite": {faction: "Water",rank:"Commander",name:"Froztbite",count:-1,cost:4,type:"Walker",attack:0,defense:6,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/139.c706f320.png",cardText:"Delayed 1: +6 Atk"},
+"Zpring": {faction: "Water",rank:"Commander",name:"Zpring",count:-1,cost:5,type:"Walker",attack:3,defense:4,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/140.5660f917.png",cardText:"As long as this is in play you have 1 extra goo"},
+"Maelstrom": {faction: "Water",rank:"Commander",name:"Maelstrom",count:-1,cost:8,type:"Walker",attack:5,defense:5,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/141.5b3f294f.png",cardText:"Entry: Return all other zombies to their owners' Hands"},
+"Fumez": {faction: "Air",rank:"Minion",name:"Fumez",count:-1,cost:2,type:"Walker",attack:1,defense:1,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/142.f4a30ac6.png",cardText:"Entry: Add a Tainted Goo to your hand"},
+"Gaz": {faction: "Air",rank:"Officer",name:"Gaz",count:-1,cost:4,type:"Walker",attack:2,defense:2,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/143.cf11e66a.png",cardText:"Guard, add a Corrupted Goo to your hand"},
+"Zap": {faction: "Life",rank:"Minion",name:"Zap",count:-1,cost:1,type:"Walker",attack:1,defense:1,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/148.32bf00a6.png",cardText:"Overflow 3: Summon a 1/1 enemy zombie minion"},
+"Cactuz": {faction: "Life",rank:"Officer",name:"Cactuz",count:-1,cost:4,type:"Walker",attack:2,defense:3,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/149.0b0ad3ce.png",cardText:"Overflow 6, Entry: Summon two 2/2 enemy zombie minions"},
+"Zeptic": {faction: "Toxic",rank:"Minion",name:"Zeptic",count:-1,cost:1,type:"Walker",attack:1,defense:1,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/150.329609ee.png",cardText:"Overflow 2, deal 2 damage to your Overlord"},
+"Hazzard": {faction: "Toxic",rank:"Officer",name:"Hazzard",count:-1,cost:5,type:"Walker",attack:4,defense:4,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/151.ffcfdd5f.png",cardText:"Overflow 7, deal 4 damage to your Overlord"},
+"Ozmoziz": {faction: "Water",rank:"Minion",name:"Osmoziz",count:-1,cost:2,type:"Walker",attack:1,defense:2,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/152.257b561a.png",cardText:"Entry: Freeze a random ally, add Tainted Goo to your hand"},
+"Geyzer": {faction: "Water",rank:"Officer",name:"Geyzer",count:-1,cost:4,type:"Walker",attack:2,defense:3,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/153.db6b8359.png",cardText:"Entry: Freeze 2 random allies, add Corrupted Goo to your hand"}
 };
+
+let currentList = {};
 
 let categoryList = [];
 let currentDeck = {};
@@ -215,6 +254,13 @@ function testFilter(key)
 	let maxDefense = currentFilter["maxDefense"];
 	let cardText = currentFilter["cardText"].toLowerCase();
 	
+	//console.log(key);
+	
+	if(testCard.name.includes("Embryo"))
+		return false;
+	
+	if (testCard.image == "")
+		return false;
 	
 	if (faction != "")
 	{
@@ -317,7 +363,7 @@ function loadCards()
 	
 	
 	
-	$.each( cardList, function(key,value){
+	$.each( currentList, function(key,value){
 		if (testFilter(key))
 		{
 			sortedArray.push(key);
@@ -440,6 +486,7 @@ function removeFromDeck(key)
 function emptyDeck()
 {
 	currentDeck = {};
+	populateDeck();
 }
 
 function populateCategories()
@@ -719,7 +766,32 @@ function clearSearch()
 	loadCards();
 }
 
+function loadOwnedCards()
+{
+	//console.log($("#ownedCards").val());
+	
+	if( $("#ownedCards").val() != '')
+		currentList = JSON.parse($("#ownedCards").val());
+	
+	loadCards();
+}
+
+function clearOwnedCards()
+{
+	currentList = {};
+	$.each(cardList, function(key,value){
+		currentList[key] = value.count;
+	});
+	loadCards();
+	$("#ownedCards").val("");
+}
+
 $(document).ready(function(){
+	
+	$.each(cardList, function(key,value){
+		currentList[key] = value.count;
+	});
+	
     loadCards();
 	populateCategories();
 	

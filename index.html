@@ -19,7 +19,7 @@
 	<img src="https://d1yfcrdiemhp2q.cloudfront.net/img/menu-bg.435ed80a.png" />
 	</a>
   </div>
-  <button name="Copy" onclick="copyText()">Copy to Clipboard</button><input type="text" id="deckURL">
+  <button name="Copy" onclick="copyText()">Copy to Clipboard</button><input type="text" id="deckURL"><button name="Clear" onclick="emptyDeck()">Clear</button>
   <div id="deckContainer">
 	  <div><h2 id="cardCount"></h2>   <span id="error"></span></div>
 	  <div id="deck"></div>
@@ -27,12 +27,13 @@
   <br>
   <br>
   <p id="searchInfo">(Accepted search values for goo/attack/defense are :min-max OR :value OR :value+ OR :value-, faction:value, rank:value, type:value, name:value, text:value)</p>
-  <span>Advanced Search: </span><input type="text" id="searchParams"><button id="clear" onclick="clearSearch()">Clear</button>
+  <span>Advanced Search: </span><input type="text" class="textInput" id="searchParams"><button id="clear" onclick="clearSearch()">Clear</button>
   <div id="cardListContainer">
 		<div id="cardList"></div>
 		<div id="filter"></div>
 	</div>
-  <br>
+  <span>Load Cards: </span><input type="text" class="textInput" id="ownedCards"><button id="load" onclick="loadOwnedCards()">Load</button><button id="clearCards" onclick="clearOwnedCards()">Clear</button>
+  <br><br>
   <div id="deckInfo">
 	<div id="deckSummary">
 		<h1>Deck Summary</h1>
