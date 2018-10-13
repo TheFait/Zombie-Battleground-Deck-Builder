@@ -10,40 +10,70 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
 	<script src="datalore.js"></script>
+	<script src="scraper.js"></script>
 	<link rel="stylesheet" type="text/css" href="index.css">
+	<link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet'>
 </head>
 
 <body>
-  <div id="title"><a href="https://loom.games/">
-	<h1>Zombie Battleground Horde Assembly</h1>
-	<img src="https://d1yfcrdiemhp2q.cloudfront.net/img/menu-bg.435ed80a.png" />
-	</a>
-  </div>
-  <button name="Copy" onclick="copyText()">Copy to Clipboard</button><input type="text" id="deckURL"><button name="Clear" onclick="emptyDeck()">Clear</button>
-  <div id="deckContainer">
-	  <div><h2 id="cardCount"></h2>   <span id="error"></span></div>
-	  <div id="deck"></div>
+	<div id="header">
+		<div id="title">
+			<div class="titleLogo">
+				<img id="logo" src="images/logo2.png" alt="Zombie Battleground Tools" />
+			</div>
+			<div id="navFiller">
+				<nav>
+					<div class="linkWrapper">
+						<a class="fillLink" onclick="loadAssembly()" href=#>Horde Assembly</a>
+					</div>
+					<div>
+					</div>
+					<div class="linkWrapper">
+						<a class="fillLink" onclick="loadScraper()" href=#>Goo Scraper</a>
+					</div>
+				</nav>
+			</div>
+			<div class="titleLogo">
+				<a href="https://loom.games" >
+					<img id="logo" src="images/zb_logo.png" alt="Zombie Battleground Tools" />
+				</a>
+			</div>
+		</div>
 	</div>
-  <br>
-  <br>
-  <p id="searchInfo">(Accepted search values for goo/attack/defense are :min-max OR :value OR :value+ OR :value-, faction:value, rank:value, type:value, name:value, text:value)</p>
-  <span>Advanced Search: </span><input type="text" class="textInput" id="searchParams"><button id="clear" onclick="clearSearch()">Clear</button>
-  <div id="cardListContainer">
-		<div id="cardList"></div>
-		<div id="filter"></div>
+	<div id="assembly" class="content">
+		<button name="Copy" onclick="copyText()">Copy to Clipboard</button><input type="text" id="deckURL"><button name="Clear" onclick="emptyDeck()">Clear</button>
+		<div id="deckContainer">
+		  <div><h2 id="cardCount"></h2>   <span id="error"></span></div>
+		  <div id="deck"></div>
+		</div>
+		<br>
+		<br>
+		<p id="searchInfo">(Accepted filter values for goo/attack/defense are :min-max OR :value OR :value+ OR :value-, faction:value, rank:value, type:value, name:value, ability:value)</p>
+		<span>Advanced Filter: </span><input type="text" class="textInput" id="searchParams"><button id="clear" onclick="clearSearch()">Clear</button>
+		<div id="cardListContainer">
+			<div id="cardList"></div>
+			<div id="filter"></div>
+		</div>
+		<button id="load" onclick="loadOwnedCards()">Load Cards from Scraper</button><button id="clearCards" onclick="clearOwnedCards()">Clear</button>
+		<br><br>
+		<div id="deckInfo">
+		<div id="deckSummary">
+			<h1>Deck Summary</h1>
+			<div class="rankCount" id="minionCount">Minions: 50</div>
+			<div class="rankCount" id="officerCount">Officers: 50</div>
+			<div class="rankCount" id="commanderCount">Commanders: 50</div>
+			<div class="rankCount" id="generalCount">Generals: 50</div>
+			<div class="rankCount" id="itemCount">Items: 50</div>
+		</div>
+		<canvas id="myChart" width="600" height="400"></canvas>
+		</div>
 	</div>
-  <span>Load Cards: </span><input type="text" class="textInput" id="ownedCards"><button id="load" onclick="loadOwnedCards()">Load</button><button id="clearCards" onclick="clearOwnedCards()">Clear</button>
-  <br><br>
-  <div id="deckInfo">
-	<div id="deckSummary">
-		<h1>Deck Summary</h1>
-		<div class="rankCount" id="minionCount">Minions: 50</div>
-		<div class="rankCount" id="officerCount">Officers: 50</div>
-		<div class="rankCount" id="commanderCount">Commanders: 50</div>
-		<div class="rankCount" id="generalCount">Generals: 50</div>
-		<div class="rankCount" id="itemCount">Items: 50</div>
+	<div id="scraper" class="content" style="display:none">
+		<p>Instructions: Browse to <a href="https://loom.games/my-cards?filter=standard,limited,backer" target="_blank">your cards</a>, and login. Open up the Inspector in your browser (Ctrl+Shift+i in most browsers), right click the &lt;body&gt; tag and Copy => OuterHTML. Paste that into the text field below and press Load!</p>
+		<input type="text" id="textBox"><button onclick="parseText()">Load</button>
+		<br><br>
+		<div id="container">
+		</div>
 	</div>
-	<canvas id="myChart" width="600" height="400"></canvas>
-  </div>
   </body>
 </html>
