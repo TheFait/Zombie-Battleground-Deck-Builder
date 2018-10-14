@@ -69,7 +69,7 @@ const cardList = {
 	"Stapler": {faction: "Item",rank:"Item",name:"Stapler",count:-1,cost:4,type:"Item",attack:0,defense:0,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/015.83178c67.png",cardText:"Restore 4 Def to a zombie"},
 	"Nail Bomb": {faction: "Item",rank:"Item",name:"Nail Bomb",count:-1,cost:4,type:"Item",attack:0,defense:0,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/016.acc1ab1b.png",cardText:"4 damage to a zombie, Swing 4"},
 	"Goo Bottles": {faction: "Item",rank:"Item",name:"Goo Bottles",count:-1,cost:4,type:"Item",attack:0,defense:0,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/017.79cc9efa.png",cardText:"Get 2 empty goo vials"},
-	"Chainsaw": {faction: "Item",rank:"Item",name:"Chainsaw",count:-1,cost:2,type:"Item",attack:0,defense:0,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/018.00832a30.png",cardText:"Attack: 1 damage to your Overlord"},
+	"Chainsaw": {faction: "Item",rank:"Item",name:"Chainsaw",count:-1,cost:4,type:"Item",attack:0,defense:0,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/018.00832a30.png",cardText:"+4 Atk to a zombie; End: 4 damage to this zombie"},
 	"Molotov": {faction: "Item",rank:"Item",name:"Molotov",count:-1,cost:4,type:"Item",attack:0,defense:0,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/039.71d9d4b5.png",cardText:"3 damage to a zombie, Swing 3"},
 	"Bat": {faction: "Item",rank:"Item",name:"Bat",count:-1,cost:3,type:"Item",attack:0,defense:0,image:"https://d1yfcrdiemhp2q.cloudfront.net/img/040.5447577c.png",cardText:"2 damage to a zombie and Distract it"},
 	"Super Serum": {faction: "Item",rank:"Item",name:"Super Serum",count:-1,cost:4,type:"Item",attack:0,defense:0,image:"https://loom.games/img/041.3fef81be.png",cardText:"Give an ally zombie +3/+3"},
