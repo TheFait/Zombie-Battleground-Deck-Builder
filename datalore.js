@@ -161,6 +161,7 @@ let currentList = {};
 
 let categoryList = [];
 let currentDeck = {};
+let loadedCards = false;
 const MAX_CARDS = 30;
 const MAX_MINIONS = 4;
 const MAX_OFFICERS = 2;
@@ -184,10 +185,11 @@ let currentFilter = {
 
 
 let chartData = {
-	labels: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"],
+	labels: ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"],
 	datasets: [{
 		label: "Goo Cost Graph",
 		backgroundColor: [
+			'rgba(200, 200, 255, 0.4)',
 			'rgba(150, 150, 150, 0.4)',
 			'rgba(100, 100, 255, 0.4)',
 			'rgba(200, 200, 255, 0.4)',
@@ -202,6 +204,7 @@ let chartData = {
 			'rgba(200, 200, 255, 0.4)'
 		],
 		borderColor: [
+			'rgba(200, 200, 255, 1)',
 			'rgba(150, 150, 150, 1)',
 			'rgba(100, 100, 255, 1)',
 			'rgba(200, 200, 255, 1)',
@@ -238,7 +241,7 @@ function resetFilter()
 }
 
 
-function testFilter(key)
+function testFilter(key, checkCount)
 {
 	let testCard = cardList[key];
 	
@@ -254,7 +257,11 @@ function testFilter(key)
 	let maxDefense = currentFilter["maxDefense"];
 	let cardText = currentFilter["cardText"].toLowerCase();
 	
-	//console.log(key);
+	if(checkCount)
+	{
+		if(currentList[key] <= 0)
+			return false;
+	}
 	
 	if(testCard.name.includes("Embryo"))
 		return false;
@@ -361,14 +368,24 @@ function loadCards()
 	$("#cardList").empty();
 	$("#cardList").scrollLeft();
 	
-	
-	
-	$.each( currentList, function(key,value){
-		if (testFilter(key))
-		{
-			sortedArray.push(key);
-		}
-	});
+	if (loadedCards && !$("#ownedCheckbox").is(":checked"))
+	{
+		$.each( currentList, function(key,value){
+			if (testFilter(key, true))
+			{
+				sortedArray.push(key);
+			}
+		});
+	}
+	else
+	{
+		$.each( currentList, function(key,value){
+			if (testFilter(key, false))
+			{
+				sortedArray.push(key);
+			}
+		});
+	}
 	
 	sortedArray.sort(function (a,b){
 
@@ -389,8 +406,16 @@ function loadCards()
 		cardImage.click(function(){
 				addToDeck(key, cardList[key]);
 		});
-		
+				
 		cardWrapper.append(cardImage);
+		
+		if(loadedCards)
+		{
+			let cardAmount = $('<h3 />', {
+				text: currentList[key]
+			});
+			cardWrapper.append(cardAmount);
+		}		
 		
 		
 		$("#cardList").append(cardWrapper);
@@ -536,11 +561,22 @@ function populateDeck()
 		cardImage.click(function(){
 				removeFromDeck(key);
 		});
-			
-		let cardAmount = $('<h3 />', {
-			text: currentDeck[key]
-		});
 		
+		let cardAmount = '';
+		
+		if (loadedCards)
+		{
+			cardAmount = $('<h3 />', {
+				text: currentDeck[key] + " (" + (Number(currentList[key]) - Number(currentDeck[key])) + ")"
+			});
+		}
+		else
+		{
+			cardAmount = $('<h3 />', {
+				text: currentDeck[key]
+			});
+		}
+
 		cardWrapper.append(cardImage);
 		cardWrapper.append(cardAmount);
 			
@@ -625,7 +661,7 @@ function updateGraph()
 {
 	let graphData = [0,0,0,0,0,0,0,0,0,0,0,0];
 	$.each( currentDeck, function(key,value){
-		graphData[(cardList[key].cost-1)] += value;
+		graphData[(cardList[key].cost)] += value;
 	});
 	
 	chartData.datasets[0].data = graphData;
@@ -771,8 +807,10 @@ function loadOwnedCards()
 	if(Object.keys(ownedCards).length > 0)
 	{
 		currentList = ownedCards;
+		loadedCards = true;
 	}
 	loadCards();
+	populateDeck();
 }
 
 function clearOwnedCards()
@@ -781,8 +819,9 @@ function clearOwnedCards()
 	$.each(cardList, function(key,value){
 		currentList[key] = value.count;
 	});
+	loadedCards = false;
 	loadCards();
-	$("#ownedCards").val("");
+	populateDeck();
 }
 
 function loadAssembly()
@@ -866,6 +905,11 @@ $(document).ready(function(){
 	  if ($(this).scrollTop() < 10) {
 		 $('#header').removeClass('changeColor');
 	  }
+	});
+	
+	$("#ownedCheckbox").change(function() {
+		loadCards();
+		populateDeck();
 	});
 	
 });

@@ -17,6 +17,7 @@ function parseText()
 	
 	//console.log(obj[2]);
 	$("#container").empty();
+	ownedCards={};
 	
     $.each(obj, function(key, value)
     {
@@ -117,9 +118,7 @@ function parseText()
 		row.append(overflow);
 		table.append(row);
 		
-		if (totalCards > 0)
-			ownedCards[key] = totalCards;
-		
+		ownedCards[key] = totalCards;
 	});
 	
 	$("#container").append(table);

@@ -105,7 +105,8 @@ nav a:hover{
 
 #cardList {
 	padding-top: 10px;
-	height: 230px;
+	padding-bottom: 5px;
+	min-height: 230px;
 	overflow: auto;
     white-space: nowrap;
 	background-color: rgba(100,100,100,.2);
