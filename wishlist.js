@@ -28,7 +28,7 @@ function loadWishlistCards()
 		
 		let cardWrapper = $('<span class="card"/>');
 		let cardImage = $('<img class="cardImage"/>');
-		cardImage.attr('src', cardList[key].image);
+		cardImage.attr('src', "https://loom.games/img/cards/" + formatId(cardList[key].id) + ".png");
 		cardImage.click(function(){
 				addToWishlist(key);
 		});
@@ -88,7 +88,7 @@ function populateWishlist()
 	sortedArray.forEach(function(key,index){
 		let cardWrapper = $('<span class="card"/>');
 		let cardImage = $('<img class="cardImage"/>');
-		cardImage.attr('src', cardList[key].image);
+		cardImage.attr('src', "https://loom.games/img/cards/" + formatId(cardList[key].id) + ".png");
 		cardImage.click(function(){
 				removeFromWishlist(key);
 		});
