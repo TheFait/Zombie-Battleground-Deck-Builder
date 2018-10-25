@@ -162,6 +162,7 @@ let currentList = {};
 let categoryList = [];
 let currentDeck = {};
 let loadedCards = false;
+let currentPage = "";
 const MAX_CARDS = 30;
 const MAX_MINIONS = 4;
 const MAX_OFFICERS = 2;
@@ -427,7 +428,7 @@ function addToDeck(key, value)
 {
 	$("#error").text("");
 	//Only add if there are less than 30 cards
-	if (checkTotalCards() < MAX_CARDS)
+	if (checkTotalCards(currentDeck) < MAX_CARDS)
 	{
 		
 		if(currentDeck[key] !== undefined)
@@ -483,10 +484,10 @@ function addToDeck(key, value)
 	}
 }
 
-function checkTotalCards()
+function checkTotalCards(list)
 {
 	let size = 0;
-	$.each( currentDeck, function(key,value){
+	$.each( list, function(key,value){
 		size += value;
 	});
 	
@@ -534,6 +535,7 @@ function populateCategories()
 			$("#filter").append(buttonTest);
 	});
 }
+
 
 function populateDeck()
 {
@@ -604,7 +606,7 @@ function getParams(url) {
 
 function updateCardAmount()
 {
-	$("#cardCount").text("Deck Size: " + checkTotalCards() + "/" + MAX_CARDS);
+	$("#cardCount").text("Deck Size: " + checkTotalCards(currentDeck) + "/" + MAX_CARDS);
 	
 	let minionCount = 0;
 	let officerCount = 0;
@@ -646,7 +648,7 @@ function updateCardAmount()
 
 function updateDeckURL()
 {
-	let url = window.location.href.split('?')[0] + "?";
+	let url = window.location.href.split('?')[0] + "?page=" + currentPage + "&";
 	$.each( currentDeck, function(key,value){
 		url += key + "=" + value + "&";
 	});
@@ -670,14 +672,22 @@ function updateGraph()
 
 function copyText()
 {
-	let textToCopy = $("#deckURL");
+	let textToCopy="";
+	if(currentPage === "assembly")
+		textToCopy = $("#deckURL");
+	else if (currentPage === "wishlist")
+		textToCopy = $("#wishlistURL");
 	textToCopy.select();
 	document.execCommand("copy");	
 }
 
 function updateSearch()
 {
-	let params = $("#searchParams").val();
+	let params = "";
+	if(currentPage === "assembly")
+		params = $("#searchParams").val();
+	else
+		params = $("#filterParams").val();
 	
 	let previousFilter = currentFilter;
 	resetFilter();
@@ -791,9 +801,18 @@ function updateSearch()
 	{
 		currentFilter = previousFilter;
 	}
-	loadCards();
+	
+	if($("#wishlist").css("display") != "none")
+	{
+		loadWishlistCards();
+	}
+	if($("#assembly").css("display") != "none")
+	{
+		loadCards();
+	}
 	
 }
+
 
 function clearSearch()
 {
@@ -828,18 +847,66 @@ function loadAssembly()
 {
 	if($("#assembly").css("display") == "none")
 	{
-		$("#scraper").slideToggle('slow');
-		$("#assembly").slideToggle('slow');
+		$("#scraper").slideUp('slow');
+		$("#assembly").slideDown('slow');
+		$("#wishlist").slideUp('slow');
 	}
+	
+	$(".linkWrapper").removeClass("active");
+	$("#assemblyWrapper").addClass("active");
+	
+	$("#searchParams").val($("#filterParams").val());
+	currentPage = "assembly";
+	loadCards();
 }
 
 function loadScraper()
 {
 	if($("#scraper").css("display") == "none")
 	{
-		$("#scraper").slideToggle('slow');
-		$("#assembly").slideToggle('slow');
+		$("#scraper").slideDown('slow');
+		$("#assembly").slideUp('slow');
+		$("#wishlist").slideUp('slow');
 	}
+	$(".linkWrapper").removeClass("active");
+	$("#scraperWrapper").addClass("active");
+	currentPage = "scraper";
+}
+
+function loadWishlist()
+{
+	if($("#wishlist").css("display") == "none")
+	{
+		$("#scraper").slideUp('slow');
+		$("#assembly").slideUp('slow');
+		$("#wishlist").slideToggle('slow');
+	}
+	$(".linkWrapper").removeClass("active");
+	$("#wishlistWrapper").addClass("active");
+	
+	$("#filterParams").val($("#searchParams").val());
+	currentPage = "wishlist";
+	loadWishlistCards();
+}
+
+function toWishlist()
+{
+	
+	$.each(currentDeck, function(key,value){
+		
+		if (loadedCards)
+		{
+			if((value - ownedCards[key]) > 0)
+				wishlist[key] = value - ownedCards[key];
+		}
+		else
+		{
+			wishlist[key] = value;
+		}
+	});
+	
+	populateWishlist();
+	loadWishlist();
 }
 
 $(document).ready(function(){
@@ -848,8 +915,11 @@ $(document).ready(function(){
 		currentList[key] = value.count;
 	});
 	
+	currentPage = "assembly";
+	
     loadCards();
 	populateCategories();
+	populateWishlistCategories();
 	
 	var ctx = $('#myChart')[0].getContext('2d');
 	window.chart = new Chart(ctx, {
@@ -884,17 +954,39 @@ $(document).ready(function(){
 	
 	if (!Object.keys(loadedDeck)[0] == "")
 	{
-		//Convert string values into numbers
-		$.each( loadedDeck, function(key,value)
+		//key 1 is whether this is deck or wishlist
+		let toPage = loadedDeck.page;
+		
+		if (toPage === "assembly")
 		{
-			loadedDeck[key] = Number(value);
-		});
-		currentDeck = loadedDeck;
-		populateDeck();
+			delete loadedDeck.page;
+			//Convert string values into numbers
+			$.each( loadedDeck, function(key,value)
+			{
+				loadedDeck[key] = Number(value);
+			});
+			currentDeck = loadedDeck;
+			populateDeck();
+		}
+		else if (toPage === "wishlist")
+		{
+			delete loadedDeck.page;
+			
+			$.each( loadedDeck, function(key,value)
+			{
+				loadedDeck[key] = Number(value);
+			});
+			wishlist = loadedDeck;
+			currentPage = "wishlist";
+			populateWishlist();
+			loadWishlist();
+		}
+		
+		
 		
 	}
 	
-	$("#searchParams").change(function(){
+	$(".searchText").change(function(){
 		updateSearch();
 	});
 	
@@ -913,4 +1005,3 @@ $(document).ready(function(){
 	});
 	
 });
-

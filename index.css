@@ -35,7 +35,7 @@ div.content{
 }
 
 nav a{
-	color:white;
+	color: inherit;
 	font:2em small-caps;
 	font-family: 'Lato', sans-serif;
 	font-variant: small-caps;
@@ -54,6 +54,11 @@ nav a:hover{
 .linkWrapper{
 	background-image: url("images/plank.png");
 	background-size: 100% 100%;
+}
+
+.linkWrapper.active{
+	background-image: url("images/plank_active.png");
+	color:#999;
 }
 
 #navFiller{
@@ -82,28 +87,28 @@ nav a:hover{
 	margin-top:5px;
 }
 
-#cardCount{
-	display:inline;
+.cardCounter{
 	padding-left: 10px;
+	display:inline;
 }
 
-#deck {
+.innerDeck {
 	padding-top: 10px;
 	height: 240px;
 	overflow: auto;
     white-space: nowrap;
 }
 
-#deckContainer{
+.deckHolder{
 	background-color: rgba(53,255,20,.2);
 }
 
-#cardListContainer{
+.cardListContainer{
 	background-color: rgba(100,100,200,.2);
 	padding: 5px;
 }
 
-#cardList {
+.cardHolder {
 	padding-top: 10px;
 	padding-bottom: 5px;
 	min-height: 230px;
@@ -112,7 +117,7 @@ nav a:hover{
 	background-color: rgba(100,100,100,.2);
 }
 
-#filter img{
+.imageFilter img{
 	cursor: pointer;
 	width: 73px;
 	height: 73px;
@@ -151,7 +156,7 @@ nav a:hover{
 	left:75px;
 }
 
-#deckURL{
+.urlText{
 	width: 600px;
 }
 

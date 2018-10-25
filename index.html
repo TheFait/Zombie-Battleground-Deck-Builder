@@ -11,6 +11,7 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
 	<script src="datalore.js"></script>
 	<script src="scraper.js"></script>
+	<script src="wishlist.js"></script>
 	<link rel="stylesheet" type="text/css" href="index.css">
 	<link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet'>
 </head>
@@ -23,13 +24,16 @@
 			</div>
 			<div id="navFiller">
 				<nav>
-					<div class="linkWrapper">
+					<div class="linkWrapper active" id="assemblyWrapper">
 						<a class="fillLink" onclick="loadAssembly()" href=#>Horde Assembly</a>
 					</div>
 					<div>
 					</div>
-					<div class="linkWrapper">
+					<div class="linkWrapper" id="scraperWrapper">
 						<a class="fillLink" onclick="loadScraper()" href=#>Goo Scraper</a>
+					</div>
+					<div class="linkWrapper" id="wishlistWrapper">
+						<a class="fillLink" onclick="loadWishlist()" href=#>Wishlist</a>
 					</div>
 				</nav>
 			</div>
@@ -41,18 +45,18 @@
 		</div>
 	</div>
 	<div id="assembly" class="content">
-		<button name="Copy" onclick="copyText()">Copy to Clipboard</button><input type="text" id="deckURL"><button name="Clear" onclick="emptyDeck()">Clear</button>
-		<div id="deckContainer">
-		  <div><h2 id="cardCount"></h2>   <span id="error"></span></div>
-		  <div id="deck"></div>
+		<button name="Copy" onclick="copyText()">Copy to Clipboard</button><input type="text" class="urlText" id="deckURL"><button name="Clear" onclick="emptyDeck()">Clear</button><button name="Wishlist" onclick="toWishlist()">Send to Wishlist</button>
+		<div id="deckContainer" class="deckHolder">
+		  <div><h2 id="cardCount" class="cardCounter"></h2>   <span id="error"></span></div>
+		  <div id="deck" class="innerDeck"></div>
 		</div>
 		<br>
 		<br>
 		<p id="searchInfo">(Accepted filter values for goo/attack/defense are :min-max OR :value OR :value+ OR :value-, faction:value, rank:value, type:value, name:value, ability:value)</p>
-		<span>Advanced Filter: </span><input type="text" class="textInput" id="searchParams"><button id="clear" onclick="clearSearch()">Clear</button>
-		<div id="cardListContainer">
-			<div id="cardList"></div>
-			<div id="filter"></div>
+		<span>Advanced Filter: </span><input type="text" class="textInput searchText" id="searchParams"><button id="clear" onclick="clearSearch()">Clear</button>
+		<div class="cardListContainer">
+			<div id="cardList" class="cardHolder"></div>
+			<div id="filter" class="imageFilter"></div>
 		</div>
 		<button id="load" onclick="loadOwnedCards()">Load Cards from Scraper</button><button id="clearCards" onclick="clearOwnedCards()">Clear</button> <input type="checkbox" id="ownedCheckbox" value="True" name="ownedToggle">Show cards I don't own</input>
 		<br><br>
@@ -73,6 +77,21 @@
 		<input type="text" id="textBox"><button onclick="parseText()">Load</button>
 		<br><br>
 		<div id="container">
+		</div>
+	</div>
+	<div id="wishlist" class="content" style="display:none">
+		<button name="Copy" onclick="copyText()">Copy to Clipboard</button><input type="text" class="urlText" id="wishlistURL"><button name="Clear" onclick="emptyWishlist()">Clear</button>
+		<div id="wishlistContainer" class="deckHolder">
+			<div><h2 id="wishlistCount" class="cardCounter">Cards: 0</h2></div>
+			<div id="list" class="innerDeck"></div>
+		</div>
+		<br>
+		<br>
+		<p id="searchInfo">(Accepted filter values for goo/attack/defense are :min-max OR :value OR :value+ OR :value-, faction:value, rank:value, type:value, name:value, ability:value)</p>
+		<span>Advanced Filter: </span><input type="text" class="textInput searchText" id="filterParams"><button id="clear" onclick="clearFilter()">Clear</button>
+		<div class="cardListContainer">
+			<div id="wishlistCardList" class="cardHolder"></div>
+			<div id="wishlistFilter" class="imageFilter"></div>
 		</div>
 	</div>
   </body>
