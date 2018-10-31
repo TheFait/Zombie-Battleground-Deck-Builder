@@ -26,18 +26,19 @@ function parseText()
 		//console.log(value.childNodes[3].innerText);
 		let type = "";
 		
-		//console.log(value.childNodes[5]);
+		let id = value.getAttribute("href");
+		id = id.substring(id.indexOf("/",2)+1,id.indexOf("/",7)-1);
+		
+		console.log(id);
 		
 		if (value.childNodes[9].innerText !== undefined)
 			type = value.childNodes[9].innerText.trim();
 		else
 			type = "standard";
-		
-		let name = value.childNodes[6].innerText.trim();
-        //console.log(name + ":" + type + ":" + amount);		
+			
 		
 		try{
-			ownedList[name][type] = amount;
+			ownedList[id][type] = amount;
 		}
 		catch(err)
 		{
@@ -64,7 +65,7 @@ function parseText()
 	$.each(ownedList, function(key,value)
 	{		
 		let row = $('<tr />');
-		let keyData = $('<td />').text(key);
+		let keyData = $('<td />').text(cardList[key].name);
 		let rank = $('<td />').text(cardList[key].rank);
 		let faction = $('<td />').text(cardList[key].faction);
 		let type = $('<td />').text(cardList[key].type);
