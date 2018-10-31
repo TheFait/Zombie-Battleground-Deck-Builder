@@ -1,0 +1,56 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>ZB Horde Assembly</title>
+  <meta name="description" content="Zombie Battleground Horde Assembly">
+  <meta name="author" content="Fait">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
+	<script src="viewDeck.js"></script>
+	<link rel="stylesheet" type="text/css" href="index.css">
+	<link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet'>
+</head>
+
+<body>
+	<div id="header">
+		<div id="title">
+			<div class="titleLogo">
+				<img id="logo" src="images/logo2.png" alt="Zombie Battleground Tools" />
+			</div>
+			<div id="navFiller">
+				<nav>
+					<div class="linkWrapper active">
+						<a class="fillLink" onclick="" href=#>Horde Viewer</a>
+					</div>
+				</nav>
+			</div>
+			<div class="titleLogo">
+				<a href="https://loom.games" >
+					<img id="logo" src="images/zb_logo.png" alt="Zombie Battleground Tools" />
+				</a>
+			</div>
+		</div>
+	</div>
+	<div id="assembly" class="content">
+		<div id="deckContainer" class="deckHolder">
+		  <div><h2 id="cardCount" class="cardCounter"></h2>   <span id="error"></span></div>
+		  <div id="deck" class="innerDeck viewMode"></div>
+		</div>
+		<br><br>
+		<div id="deckInfo">
+			<div id="deckSummary">
+				<h1>Deck Summary</h1>
+				<div class="rankCount" id="minionCount">Minions: 50</div>
+				<div class="rankCount" id="officerCount">Officers: 50</div>
+				<div class="rankCount" id="commanderCount">Commanders: 50</div>
+				<div class="rankCount" id="generalCount">Generals: 50</div>
+				<div class="rankCount" id="itemCount">Items: 50</div>
+			</div>
+			<canvas id="myChart" width="600" height="400"></canvas>
+		</div>
+	</div>
+  </body>
+</html>

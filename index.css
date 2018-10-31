@@ -92,9 +92,14 @@ nav a:hover{
 	display:inline;
 }
 
+.viewMode {
+	display: flex;
+	flex-wrap: wrap;
+}
+
 .innerDeck {
 	padding-top: 10px;
-	height: 240px;
+	min-height: 240px;
 	overflow: auto;
     white-space: nowrap;
 }
@@ -140,7 +145,7 @@ nav a:hover{
 	position:relative;
 	cursor: pointer;
 	width: 150px;
-	height: 192px;
+	min-height: 192px;
 	display:inline-block;
 	text-align: center;
 }
