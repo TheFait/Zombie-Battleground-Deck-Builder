@@ -239,4 +239,7 @@ td{
 	#header{
 		margin-bottom:0px;
 	}
+	.card{
+		width:175px;
+	}
 }
