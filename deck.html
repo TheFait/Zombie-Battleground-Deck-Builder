@@ -10,7 +10,7 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
 	<script src="viewDeck.js"></script>
-	<link rel="stylesheet" type="text/css" href="index.css">
+	<link rel="stylesheet" type="text/css" href="index2.css">
 	<link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet'>
 </head>
 
@@ -36,20 +36,21 @@
 	</div>
 	<div id="assembly" class="content">
 		<div id="deckContainer" class="deckHolder">
-		  <div><h2 id="cardCount" class="cardCounter"></h2>   <span id="error"></span></div>
 		  <div id="deck" class="innerDeck viewMode"></div>
 		</div>
-		<br><br>
 		<div id="deckInfo">
 			<div id="deckSummary">
-				<h1>Deck Summary</h1>
-				<div class="rankCount" id="minionCount">Minions: 50</div>
-				<div class="rankCount" id="officerCount">Officers: 50</div>
-				<div class="rankCount" id="commanderCount">Commanders: 50</div>
-				<div class="rankCount" id="generalCount">Generals: 50</div>
-				<div class="rankCount" id="itemCount">Items: 50</div>
+				<div id="innerSummary">
+					<h1>Deck Summary</h1>
+					<div class="rankCount" id="cardCount" class="cardCounter"></div>
+					<div class="rankCount" id="minionCount">Minions: 50</div>
+					<div class="rankCount" id="officerCount">Officers: 50</div>
+					<div class="rankCount" id="commanderCount">Commanders: 50</div>
+					<div class="rankCount" id="generalCount">Generals: 50</div>
+					<div class="rankCount" id="itemCount">Items: 50</div>
+				</div>
 			</div>
-			<canvas id="myChart" width="600" height="400"></canvas>
+			<canvas id="myChart" width="400" height="400"></canvas>
 		</div>
 	</div>
   </body>

@@ -285,7 +285,7 @@ function checkTotalCards(list)
 
 function updateCardAmount()
 {
-	$("#cardCount").text("Deck Size: " + checkTotalCards(currentDeck) + "/" + MAX_CARDS);
+	$("#cardCount").text("Cards: " + checkTotalCards(currentDeck) + "/" + MAX_CARDS);
 	
 	let minionCount = 0;
 	let officerCount = 0;

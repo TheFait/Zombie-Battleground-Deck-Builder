@@ -1,0 +1,233 @@
+body{
+	background-color: #08050c;
+	color:white;
+	margin: 0;
+}
+
+#header{
+	position: -webkit-sticky; /* Safari */
+    position: sticky;
+	width:100%;
+	z-index: 1000;
+    top: 0;
+	margin-bottom: 30px;
+}
+
+#assembly{
+	display:flex;
+	justify-content: center;
+	flex-wrap:wrap;
+}
+
+#assembly>div{
+	padding-left:10px;
+	padding-right:10px;
+}
+
+#deckContainer{
+	max-width: 750px;
+	min-width: 300px;
+}
+
+#title{
+	max-width: 1140px;
+	margin-left:auto;
+	margin-right:auto;
+	display:flex;
+	flex-direction:row;
+	height:110px;	
+}
+
+div.content{
+	margin-left:8px;
+	margin-right:8px;
+}
+
+.titleLogo{
+}
+
+.changeColor{
+	background-color:black;
+}
+
+nav a{
+	color: inherit;
+	font:2em small-caps;
+	font-family: 'Lato', sans-serif;
+	font-variant: small-caps;
+	text-decoration: none;
+}
+
+nav a:hover{
+	color:black;
+}
+
+#logo{
+	height:auto;
+	width:150px;
+}
+
+.linkWrapper{
+	background-image: url("images/plank.png");
+	background-size: 100% 100%;
+}
+
+.linkWrapper.active{
+	background-image: url("images/plank_active.png");
+	color:#999;
+}
+
+#navFiller{
+	display:flex;
+	flex-grow:1;
+	align-items: center;
+}
+
+#navFiller > nav{
+	display: flex;
+	align-items: flex-end;
+	flex-grow:1;
+	justify-content: center;
+}
+
+.fillLink{
+	padding: 40px 40px 8px;
+}
+
+#title h1{
+	position:absolute;
+	margin-left: auto;
+	margin-right: auto;
+	left: 0;
+	right: 0;
+	margin-top:5px;
+}
+
+.cardCounter{
+	padding-left: 10px;
+	display:inline;
+}
+
+.viewMode {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.innerDeck {
+	padding-top: 10px;
+	min-height: 240px;
+	overflow: auto;
+    white-space: nowrap;
+}
+
+.deckHolder{
+	background-color: rgba(53,255,20,.2);
+}
+
+.cardListContainer{
+	background-color: rgba(100,100,200,.2);
+	padding: 5px;
+}
+
+.cardHolder {
+	padding-top: 10px;
+	padding-bottom: 5px;
+	min-height: 230px;
+	overflow: auto;
+    white-space: nowrap;
+	background-color: rgba(100,100,100,.2);
+}
+
+.imageFilter img{
+	cursor: pointer;
+	width: 73px;
+	height: 73px;
+	padding: 5px;
+}
+
+#myChart{
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#error{
+	position:relative;
+	left: 50px;
+	font-size: 1.1em;
+	color: #ff0000;
+}
+
+.card{
+	position:relative;
+	width: 150px;
+	min-height: 192px;
+	display:inline-block;
+	text-align: center;
+}
+
+.cardImage{
+	max-height:100%;
+	max-width:100%;
+	width:auto;
+}
+
+.card h3{
+	margin:-10px 0px 5px 0px;
+}
+
+.urlText{
+	width: 600px;
+}
+
+.textInput{
+	width:600px;
+}
+
+#deckSummary{
+	/*float: left;*/
+	background-color: rgba(100,100,100,.2);
+	width: 100%;
+	height: auto;
+	text-align: center;
+}
+
+#innerSummary{
+	padding:20px;
+}
+
+.rankCount{
+	text-align: left;
+	font-size: 1.5em;
+}
+
+#deckSummary h1{
+	margin-top:0;
+}
+
+#searchInfo{
+	color: #888;
+}
+
+#textBox {
+	width:400px;
+}
+
+#container{
+	margin-left:auto;
+	margin-right:auto;
+}
+
+#container table{
+	border-collapse: collapse;
+	margin-left:auto;
+	margin-right:auto;
+}
+
+#container table, th, td{
+	border: 1px solid white;
+}
+
+td{
+	padding-left: 5px;
+	padding-right: 5px;
+}
